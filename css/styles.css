@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700&display=swap");
+*, ::before, ::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: "Titillium Web", "Trebuchet MS", sans-serif; }
+
+a {
+  text-decoration: none;
+  color: black; }
+
+li {
+  list-style: none; }
+
+.content {
+  position: relative; }
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 200px;
+  height: 100vh;
+  background-color: #F9EFDB;
+  border-right: 5px solid #9dbc98; }
+
+.initials {
+  font-size: 4rem;
+  border-bottom: 5px solid #9dbc98;
+  width: 200px;
+  height: 200px;
+  text-align: center; }
+  .initials h1 {
+    font-weight: 900; }
+
+.main-content {
+  position: relative;
+  float: right;
+  width: calc(100% - 200px);
+  margin-left: 200px; }
+
+.banner {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: -3; }
+
+.spectrum-background {
+  background: linear-gradient(-45deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(-225deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(225deg, #9dbc98 0 25%, transparent 0 50%), linear-gradient(45deg, #9dbc98 0 25%, transparent 0 50%), #F9EFDB;
+  background-blend-mode: multiply; }
+
+.banner-text {
+  position: relative;
+  margin: auto 0; }
+
+.nav-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  margin-top: 80px;
+  margin-bottom: 80px; }
+
+.nav-item-side {
+  width: 100%;
+  text-align: center; }
+
+.nav-link-side {
+  padding-top: 5px;
+  padding-bottom: 5px; }
+
+.nav-link-side:hover {
+  border-bottom: 2px solid #9dbc98; }
+
+/*# sourceMappingURL=styles.css.map */

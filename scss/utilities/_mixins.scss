@@ -1,0 +1,36 @@
+
+@mixin abs-pos($t: null, $r: null, $b: null, $l: null){
+    position: absolute;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+}
+
+@mixin fixed-pos($t: null, $r: null, $b: null, $l: null){
+    position: fixed;
+    top: $t;
+    right: $r;
+    bottom: $b;
+    left: $l;
+}
+
+@mixin mx($value){
+    margin-right: $value;
+    margin-left: $value;
+}
+
+@mixin my($value){
+    margin-top: $value;
+    margin-bottom: $value;
+}
+
+@mixin px($value){
+    padding-right: $value;
+    padding-left: $value;
+}
+
+@mixin py($value){
+    padding-top: $value;
+    padding-bottom: $value;
+}

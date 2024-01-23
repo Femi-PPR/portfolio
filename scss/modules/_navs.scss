@@ -1,0 +1,18 @@
+.nav-side{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    @include my(80px);
+}
+
+.nav-item-side{
+    // display: inline-block;
+    width: 100%;
+    // height: auto;
+    text-align: center;
+}
+
+.nav-link-side{
+    @include py(5px);
+}

@@ -1,0 +1,75 @@
+.content{
+    position: relative;
+}
+
+.sidebar{
+    @include fixed-pos($t: 0, $l: 0, $r: 0);
+    width: 200px;
+    height: 100vh;
+    background-color: $colour-prim;
+    border-right: 5px solid $colour-second;
+}
+
+.initials{
+    font-size: 4rem;
+    border-bottom: 5px solid $colour-second;
+    width: 200px;
+    height: 200px;
+    text-align: center;
+
+    h1{
+        font-weight: 900;
+    }
+}
+
+.main-content{
+    position: relative;
+    float: right;
+    width: calc(100% - 200px);
+    margin-left: 200px;
+}
+
+.banner{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: -3;
+}
+
+.spectrum-background {
+    background:
+       linear-gradient(
+            -45deg,
+            $colour-prim-drkr 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        ),
+        linear-gradient(
+            -225deg,
+            $colour-prim-drkr 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        ),
+       linear-gradient(
+            225deg,
+            $colour-second 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        ),
+       linear-gradient(
+            45deg,
+            $colour-second 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        ), $colour-prim;
+    background-blend-mode: multiply;
+    // border-bottom: 5px solid $colour-second;
+    // background-size: 100px 100px;
+}
+
+.banner-text{
+    position: relative;
+    // background-color: white;
+    margin: auto 0;
+}
+
+

@@ -1,3 +1,11 @@
+@mixin icon($icon, $colour: null, $fsize: null){
+    &::before{
+        content: $icon;
+        color: $colour;
+        font-size: $fsize;
+        @content;
+    }
+}
 
 @mixin abs-pos($t: null, $r: null, $b: null, $l: null){
     position: absolute;

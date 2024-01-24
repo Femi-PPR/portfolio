@@ -1,0 +1,6 @@
+.contact-form{
+
+    input:focus, textarea:focus{
+        border: 2px solid $colour-second-drkr;
+    }
+}

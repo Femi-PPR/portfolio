@@ -1,0 +1,37 @@
+.contact-form{
+    display: grid;
+    gap: 15px 20px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas: 
+    "fname lname"
+    "email email"
+    "subject subject"
+    "message message"
+    "submit submit";
+
+    input, textarea{
+        background-color: $colour-second;
+        border-radius: 3px;
+        border: 2px solid $colour-second;
+        border: none;
+        padding: 15px 25px;
+        box-shadow: none;
+
+        &::placeholder{
+            color: rgba(243, 238, 234, 0.7);
+        }
+    }
+
+    textarea{
+        // height: 35px;
+        padding: 20px;
+    }
+}
+
+@each $area in $contact-grid-areas{
+    ##{$area}{
+        grid-area: #{$area};
+    }
+}
+
+//want ~235px gap and height of ~505px or ~510px out of 779px

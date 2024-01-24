@@ -1,8 +1,29 @@
+$font-path-local: "../fonts";
+$img-path-local: "../images";
+
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Titillium+Web:ital,wght@0,300;0,400;0,600;0,700;0,900;1,300;1,400;1,600;1,700&display=swap');
 
+@font-face {
+    font-family: 'icomoon';
+    src:  url('#{$font-path-local}/icomoon.ttf?x7c0h8');
+    font-weight: normal;
+    font-style: normal;
+    font-display: block;
+}
+
+@font-face {
+    font-family: 'FontAwesome';
+    src: url('#{$font-path-local}/fontawesome-webfont.woff?v=4.0.3');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
 $stack-noto: 'Noto Sans', sans-serif;
 $stack-titillium: 'Titillium Web', 'Trebuchet MS', sans-serif;
+$font-iconmoon: 'icomoon' !important;
+$font-fa: 'FontAwesome' !important;
 
 $colour-prim: #F9EFDB;
 $colour-prim-drkr: #ebd9b4;
@@ -10,3 +31,8 @@ $colour-second: #9dbc98;
 $colour-second-drkr: #638889;
 
 $grad-percent: 25%;
+
+$icon-rarrow    : "\E906";
+$icon-linkedin  : "\F0E1";
+
+$contact-grid-areas : ("fname","lname","email","subject","message");

@@ -20,10 +20,27 @@ $img-path-local: "../images";
     font-display: swap;
 }
 
+@font-face {
+    font-family: 'FontAwesome Brand';
+    src: url('#{$font-path-local}/fa-brands-400.woff2') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FontAwesome Solid';
+    src: url('#{$font-path-local}/fontawesome-webfont.woff?v=4.0.3');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 $stack-noto: 'Noto Sans', sans-serif;
 $stack-titillium: 'Titillium Web', 'Trebuchet MS', sans-serif;
 $font-iconmoon: 'icomoon' !important;
 $font-fa: 'FontAwesome' !important;
+$font-fab: 'FontAwesome Brand' !important;
 
 $colour-prim: #F9EFDB;
 $colour-prim-drkr: #ebd9b4;
@@ -32,7 +49,35 @@ $colour-second-drkr: #638889;
 
 $grad-percent: 25%;
 
-$icon-rarrow    : "\E906";
-$icon-linkedin  : "\F0E1";
+$icon-rarrow        : "\E906";
+$icon-linkedin      : "\F0E1";
+$icon-chevron-down  : "\f078";
+$icon-chevron-up    : "\f077";
+$icon-github        : "\f09b";
+$icon-phone         : "\f095";
+$icon-email         : "\f0e0";
+$icon-html          : "\f13b";
+$icon-css           : "\f38b";
+$icon-sass          : "\f41e";
 
-$contact-grid-areas : ("fname","lname","email","subject","message");
+$break-points : (
+    "sm"    : 480px,
+    "sm-btn": 481px,
+    "md"    : 768px,
+    "lg"    : 992px,
+    "x-lg"  : 1260px,
+);
+
+$tech-icons: (
+    "html": "#{$img-path-local}/icons/html5.svg",
+    "css": "#{$img-path-local}/icons/css3-alt.svg",
+    "sass": "#{$img-path-local}/icons/sass.svg",
+    "java": "#{$img-path-local}/icons/java.svg",
+    "python": "#{$img-path-local}/icons/python.svg",
+    "r": "#{$img-path-local}/icons/r-project.svg",
+    "sql": "https://api.iconify.design/ph/file-sql-light.svg",
+    "github": "#{$img-path-local}/icons/github.svg",
+    "vs-code": "https://api.iconify.design/akar-icons/vscode-fill.svg",
+);
+
+$contact-grid-areas : ("fname","lname","email","subject","message","submit");

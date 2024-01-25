@@ -7,6 +7,42 @@
     }
 }
 
+@mixin mq($brk){
+    $value: map-get($break-points, $brk);
+    @media screen and (min-width: $value) {
+        &{
+            @content;
+        }
+    }
+}
+
+@mixin mq-range($l-brk, $u-brk){
+    $lb: map-get($break-points, $l-brk);
+    $ub: map-get($break-points, $u-brk);
+    @media screen and (min-width: $lb) and (max-width: ($ub - 1)) {
+        &{
+            @content;
+        }
+    }
+}
+
+@mixin hide-at-viewport($brk, $disp: block){
+    display: $disp;
+
+    @include mq($brk){
+        display: none;
+    }
+}
+
+@mixin show-at-viewport($brk, $disp: block){
+    display: none;
+
+    @include mq($brk){
+        display: $disp;
+    }
+}
+
+
 @mixin abs-pos($t: null, $r: null, $b: null, $l: null){
     position: absolute;
     top: $t;
@@ -41,4 +77,10 @@
 @mixin py($value){
     padding-top: $value;
     padding-bottom: $value;
+}
+
+@mixin divider($direction, $gap, $size: 2px, $colur: $colour-second){
+    padding-#{$direction}: $gap / 2;
+    border-#{$direction}: $size solid $colur;
+    margin-#{$direction}: $gap / 2;
 }

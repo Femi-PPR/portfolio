@@ -4,9 +4,17 @@
     padding: 0;
 }
 
+html{
+    scroll-behavior: smooth;
+}
+
 body{
     font-family: $stack-titillium;
     background-color: $colour-prim;
+}
+
+section{
+    min-height: 100vh;
 }
 
 a{
@@ -16,4 +24,8 @@ a{
 
 li{
     list-style: none;
+}
+
+p{
+    min-width: 0;
 }

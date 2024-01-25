@@ -7,12 +7,12 @@
     "email email"
     "subject subject"
     "message message"
-    "submit submit";
+    "submit .";
 
     input, textarea{
-        background-color: $colour-second;
+        background-color: darken($colour-second, 0%);
         border-radius: 3px;
-        border: 2px solid $colour-second;
+        border: 2px solid darken($colour-second, 0%);
         border: none;
         padding: 15px 25px;
         box-shadow: none;
@@ -31,6 +31,22 @@
 @each $area in $contact-grid-areas{
     ##{$area}{
         grid-area: #{$area};
+    }
+}
+
+#submit{
+    @include py(20px);
+    margin-right: 50%;
+    background-color: $colour-prim;
+    border: 4px solid darken($colour-second, 0%);
+    color: darken($colour-second, 0%);
+    border-radius: 5px;
+    font-weight: bold;
+
+    &:hover{
+        background-color: darken($colour-second, 0%);
+        cursor: pointer;
+        color: $colour-prim;
     }
 }
 

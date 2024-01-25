@@ -22,6 +22,79 @@
     -moz-osx-font-smoothing: grayscale;
 }
 
+[class^="fab-"], [class*=" fab-"] {
+    font-family:  $font-fab;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+  
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
 .icon-rarrow{
     @include icon($icon-rarrow, $fsize: 14px);
+}
+
+.fa{
+    &-chevron-down{
+        @include icon($icon-chevron-down);
+    }
+
+    &-chevron-up{
+        @include icon($icon-chevron-up);
+    }
+
+    &-linkedin{
+        @include icon($icon-linkedin, $fsize: 40px);
+    }
+
+    &-github{
+        @include icon($icon-github, $fsize: 40px);
+    }
+
+    &-phone{
+        @include icon($icon-phone);
+    }
+
+    &-email{
+        @include icon($icon-email);       
+    }
+}
+
+.test::before{
+    content: url('https://api.iconify.design/codicon/vscode-insiders.svg');
+    font-size: 20px;
+    color: white;
+    background-color: white;
+}
+
+.fab{
+    &-html{
+        @include icon($icon-html, white, 20px);
+    }
+
+    &-css{
+        @include icon($icon-css, white, 20px);
+    }
+
+    &-sass{
+        @include icon($icon-sass, white, 20px);
+    }
+}
+
+@each $tech, $url in $tech-icons{
+    .item-#{$tech}{
+        padding-right: 5px;
+
+        &::before{
+            content: '';            
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background: url($url) no-repeat center center / contain;
+        }
+    }
 }

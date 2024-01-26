@@ -1,3 +1,24 @@
+a:hover{
+    text-decoration: underline;
+}
+
+.initials-link:hover{
+    text-decoration: none;
+}
+
+.socials-link:hover{
+    text-decoration: none;
+}
+
 .nav-link-side:hover{
+    text-decoration: none;
     border-bottom: 2px solid $colour-second;
+}
+
+.portfolio-article:hover{
+    .project-description{
+        display: flex;
+        @include abs-pos($r:0, $l:0, $b: 40px);
+        transition: 0.25s ease-in-out;
+    }
 }

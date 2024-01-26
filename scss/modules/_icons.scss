@@ -98,3 +98,33 @@
         }
     }
 }
+
+.treehouse-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    &::before{
+        content: '';
+        display: block;
+        background: url('https://api.iconify.design/cib/treehouse.svg?color=white') no-repeat center center / contain;
+        width: 100px;
+        height: 100px;
+    }
+}
+
+.netmatters-logo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    position: relative;
+    &::before{
+        content: '';
+        display: block;
+        background: url('#{$img-path-local}/icons/netmatters-white.svg') no-repeat center center / contain;
+        width: 100px;
+        height: 100px;
+    }
+}

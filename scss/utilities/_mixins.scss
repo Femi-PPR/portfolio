@@ -84,3 +84,9 @@
     border-#{$direction}: $size solid $colur;
     margin-#{$direction}: $gap / 2;
 }
+
+@mixin rm-divider($direction){
+    padding-#{$direction}: 0;
+    border-#{$direction}: none;
+    margin-#{$direction}: 0;
+}

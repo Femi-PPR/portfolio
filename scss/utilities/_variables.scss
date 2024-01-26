@@ -46,6 +46,8 @@ $colour-prim: #F9EFDB;
 $colour-prim-drkr: #ebd9b4;
 $colour-second: #9dbc98;
 $colour-second-drkr: #638889;
+$colour-treehouse: #5fcf80;
+$colour-netmatters: #333645;
 
 $grad-percent: 25%;
 
@@ -61,11 +63,12 @@ $icon-css           : "\f38b";
 $icon-sass          : "\f41e";
 
 $break-points : (
-    "sm"    : 480px,
-    "sm-btn": 481px,
+    "xs"    : 480px,
+    "sm"    : 576px,
     "md"    : 768px,
     "lg"    : 992px,
-    "x-lg"  : 1260px,
+    "xl"    : 1260px,
+    "2xl"   : 1400px,
 );
 
 $tech-icons: (
@@ -78,6 +81,7 @@ $tech-icons: (
     "sql": "https://api.iconify.design/ph/file-sql-light.svg",
     "github": "#{$img-path-local}/icons/github.svg",
     "vs-code": "https://api.iconify.design/akar-icons/vscode-fill.svg",
+    "jet-brains": "https://api.iconify.design/simple-icons/jetbrains.svg",
 );
 
 $contact-grid-areas : ("fname","lname","email","subject","message","submit");

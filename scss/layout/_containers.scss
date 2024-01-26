@@ -4,6 +4,7 @@
 
 .sidebar{
     @include fixed-pos($t: 0, $l: 0, $r: 0);
+    @include show-at-viewport("md");
     width: 200px;
     height: 100vh;
     background-color: $colour-prim;
@@ -33,8 +34,11 @@
 .main-content{
     position: relative;
     float: right;
-    width: calc(100% - 200px);
-    margin-left: 200px;
+    width: 100%;
+    @include mq("md"){
+        width: calc(100% - 200px);
+        margin-left: 200px;
+    }
 }
 
 .banner{
@@ -70,8 +74,6 @@
             transparent 0 (2 * $grad-percent),
         );
     background-blend-mode: multiply;
-    // border-bottom: 5px solid $colour-second;
-    // background-size: 100px 100px;
 }
 
 
@@ -79,45 +81,72 @@
     @include px(15px);
     @include mx(auto);
 
-    @include mq("x-lg"){
+    @include mq("lg"){
+        width: 750px;
+    }
+
+    @include mq("xl"){
         width: 970px;
+    }
+
+    @include mq("2xl"){
+        width: 1200px;
     }
 }
 
 .banner-text{
     position: relative;
-    // background-color: white;
+    @include px(15px);
     margin: auto 0;
 }
 
 .contact{
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
 .contact-container{
     display: flex;
+    flex-direction: column;
     align-items: start;
     justify-content: flex-start;
     gap: 20px;
-    @include my(auto);
+    @include my(30px);
+    @include mq("xl"){
+        flex-direction: row;
+        @include my(auto);
+    }
 }
 
 .contact-text{
     flex: 1;
+     h2{
+        margin-bottom: 10px;
+     }
 }
 
 .contact-wrapper{
     flex: 3;
+    width: 100%;
 }
 
+.wrapper-portfolio{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+
+    article{
+        flex: 1 300px;
+    }
+}
 .project-image{
     position: relative;
-    width: 300px;
+    width: 100%;
     height: 300px;
     background-color: black;
-    // background: url("#{$img-path-local}/netmatters-clone.png");
+    overflow-y: hidden;
+
     img{
         width: 100%;
         height: 100%;
@@ -126,10 +155,25 @@
     }
 }
 
+.project-description{
+    @include abs-pos($r:0, $l:0, $b: 100%);
+    height: calc(100% - 40px);
+    @include px(20px);
+    background-color: rgba(black, 0.85);
+    color: white;
+    display: flex;
+    align-items: center;
+
+    @include mq("xs"){
+        @include px(40px);
+    }
+
+}
+
 .tech-stack{
     @include abs-pos($b:0, $r: 0, $l:0);
     height: 40px;
-    background-color: rgba(black, 0.7);
+    background-color: rgba(black, 0.85);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -137,25 +181,29 @@
 }
 
 .portfolio{
-    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
-.wrapper-portfolio{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    @include my(60px);
-    // margin-top: 40px;
+.portfolio-container{
+    @include my(30px);
 }
+
+.portfolio-title{
+    font-size: 2.5rem;
+    @include my(30px);
+}
+
 
 .about{
     display: flex;
     @include my(auto);
     @include py(60px);
+    flex-direction: column;
+
     &-text{
-        flex:5;
-        @include divider("right", 60px);
+        @include rm-divider("right");
+        @include divider("bottom", 60px);
     }
 
     &-tech{
@@ -163,6 +211,12 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+
+        &-list{
+            display: grid;
+            gap: 5px 25px;
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
     
         h3{
             margin-bottom: 10px;
@@ -170,6 +224,20 @@
     
         li{
             margin-bottom: 3px;
+        }
+    }
+
+    @include mq("lg"){
+        flex-direction: row;
+
+        &-text{
+            flex:5;
+            @include rm-divider("bottom");
+            @include divider("right", 60px);
+        }
+
+        &-tech-list{
+            display: block;
         }
     }
 
@@ -199,73 +267,109 @@
 
 .scheme-cards{
     display: flex;
-    gap: 20px;
-    // @include mx(20px);
+    flex-direction: column;
+    gap: 30px 20px;
+    @include mq("xl"){
+        flex-direction: row;
+    }
 }
 
 .treehouse{
-    border: 3px solid $colour-second;
+    border: 3px solid $colour-treehouse;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    // margin: 50px;
     flex: 1;
-    // justify-content: space-evenly;
-    // @include mx(50px);
 
-
+    
+    
     .logo{
         width: 100%;
         height: 150px;
-        background-color: $colour-second;
-        // flex: 1;
+        background-color: $colour-treehouse;
     }
-
+    
     .text{
-        min-width: none;
         padding: 20px;
-        // flex: 1;
-        margin-right: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        *{
+            min-width: 0;
+            min-height: 0;
+        }
         h2{
             margin-bottom: 20px;
+            
         }
         p{
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        a{
+            margin-top: auto;
         }
     }
+    
+    @include mq-range("sm", "xl"){
+        flex-direction: row-reverse;
 
+        .logo{
+            min-width: 150px;
+            width: auto;
+            height: auto;
+        }
+    }
 }
 
 
 .netmatters{
-    border: 3px solid black;
+    border: 3px solid $colour-netmatters;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    // margin: 50px;
     flex: 1;
-    // justify-content: space-evenly;
-    // @include mx(50px);
 
     .logo{
         width: 100%;
         height: 150px;
-        background-color: black;
-        // flex: 1;
+        background-color: $colour-netmatters;
     }
 
     .text{
-        min-width: none;
         padding: 20px;
-        // flex: 1;
-        margin-right: 10px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
         h2{
             margin-bottom: 20px;
         }
         ul{
-            margin-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        li{
+            list-style-type: disc;
+            list-style-position: inside;
+        }
+
+        a{
+            margin-top: auto;
+        }
+    }
+
+    @include mq-range("sm", "xl"){
+        flex-direction: row;
+
+        .logo{
+            min-width: 150px;
+            width: auto;
+            height: auto;
         }
     }
 
 }
 
+.btm-scroll{
+    margin-top: 20px;
+}

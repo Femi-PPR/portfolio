@@ -4,13 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="shortcut icon" href="images/icons/favicon.ico">
     <title>Femi's Portfolio</title>
 </head>
 <body>
     <div class="content">
         <div class="sidebar">
             <div class="sidebar-content">
-                <div class="initials"><a href=""><h1>FO</h1></a></div>
+                <div class="initials"><a href="/" class="initials-link"><h1>FO</h1></a></div>
                 <nav>
                     <ul class="nav-side">
                         <li class="nav-item-side"><a href="/about.html" class="nav-link-side">About Me</a></li>
@@ -21,8 +22,8 @@
                     </ul>
                 </nav>
                 <div class="socials">
-                    <a href=""><i class="fa-linkedin"></i></a>
-                    <a href=""><i class="fa-github"></i></a>
+                    <a href="" class="socials-link"><i class="fa-linkedin"></i></a>
+                    <a href="" class="socials-link"><i class="fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -35,76 +36,83 @@
                     </div>
                     <p class="scroll-text">Scroll Down <br> <i class="fa-chevron-down"></i></p>
                 </div>
-                <div id="portfolio" class="portfolio">
-                    <h2>My Projects</h2>
-                    <div class="container wrapper-portfolio">
-                        <article>
-                            <div class="project-image ">
-                                <img src="images/backgrounds/netmatters-clone.png" width="555" height="300" alt="Netmatters Clone">
-                                <span class="tech-stack">
-                                    <i class="fab-html" title="HTML"></i>
-                                    <i class="fab-css" title="CSS"></i>
-                                    <i class="fab-sass" title="SASS"></i>
-                                </span>
-                            </div>
-                            <div class="project-text">
-                                <h3>Netmatters Clone</h3>
-                                <a href="">View Project <i class="icon-rarrow"></i></a>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="project-image">
-                                <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
-                                <span class="wip-project"></span>
-                            </div>
-                            <div class="project-text">
-                                <h3>Project 2</h3>
-                                <a href="">View Project <i class="icon-rarrow"></i></a>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="project-image">
-                                <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
-                                <span class="wip-project"></span>
-                            </div>
-                            <div class="project-text">
-                                <h3>Project 3</h3>
-                                <a href="">View Project <i class="icon-rarrow"></i></a>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="project-image">
-                                <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
-                                <span class="wip-project"></span>
-                            </div>
-                            <div class="project-text">
-                                <h3>Project 4</h3>
-                                <a href="">View Project <i class="icon-rarrow"></i></a>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="project-image">
-                                <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
-                                <span class="wip-project"></span>
-                            </div>
-                            <div class="project-text">
-                                <h3>Project 5</h3>
-                                <a href="">View Project <i class="icon-rarrow"></i></a>
-                            </div>
-                        </article>
-                        <article>
-                            <div class="project-image">
-                                <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
-                                <span class="wip-project"></span>
-                            </div>
-                            <div class="project-text">
-                                <h3>Project 6</h3>
-                                <a href="">View Project <i class="icon-rarrow"></i></a>
-                            </div>
-                        </article>
+                <section id="portfolio" class="portfolio">
+                    <div class="container portfolio-container">
+                        <h2 class="portfolio-title">My Projects</h2>
+                        <div class="wrapper-portfolio">
+                            <article class="portfolio-article">
+                                <div class="project-image">
+                                    <img src="images/backgrounds/netmatters-clone.png" width="555" height="300" alt="Netmatters Clone">
+                                    <div class="project-description">
+                                        <p>
+                                            In this project I recreated the Netmatters Website using a combination of HTML, CSS and Sass.
+                                        </p>
+                                    </div>
+                                    <div class="tech-stack">
+                                        <i class="fab-html" title="HTML"></i>
+                                        <i class="fab-css" title="CSS"></i>
+                                        <i class="fab-sass" title="SASS"></i>
+                                    </div>
+                                </div>
+                                <div class="project-text">
+                                    <h3>Netmatters Clone</h3>
+                                    <a href="https://femi-ppr.github.io/netmatters-clone/" target="_blank">View Project <i class="icon-rarrow"></i></a>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="project-image">
+                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
+                                    <span class="wip-project"></span>
+                                </div>
+                                <div class="project-text">
+                                    <h3>Project 2</h3>
+                                    <a href="">View Project <i class="icon-rarrow"></i></a>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="project-image">
+                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
+                                    <span class="wip-project"></span>
+                                </div>
+                                <div class="project-text">
+                                    <h3>Project 3</h3>
+                                    <a href="">View Project <i class="icon-rarrow"></i></a>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="project-image">
+                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
+                                    <span class="wip-project"></span>
+                                </div>
+                                <div class="project-text">
+                                    <h3>Project 4</h3>
+                                    <a href="">View Project <i class="icon-rarrow"></i></a>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="project-image">
+                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
+                                    <span class="wip-project"></span>
+                                </div>
+                                <div class="project-text">
+                                    <h3>Project 5</h3>
+                                    <a href="">View Project <i class="icon-rarrow"></i></a>
+                                </div>
+                            </article>
+                            <article>
+                                <div class="project-image">
+                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300" alt="Netmatters Clone">
+                                    <span class="wip-project"></span>
+                                </div>
+                                <div class="project-text">
+                                    <h3>Project 6</h3>
+                                    <a href="">View Project <i class="icon-rarrow"></i></a>
+                                </div>
+                            </article>
+                        </div>
                     </div>
-                </div>
-                <div id="contact" class="contact">
+                </section>
+                <section id="contact" class="contact">
                     <div class="container contact-container">
                         <div class="contact-text">
                             <h2>Get In Touch</h2>
@@ -112,8 +120,10 @@
                                 Feel free to reach out and connect — I'm always eager to discuss new opportunities, collaborations, or simply have a chat. you may contact me directly at
                             </p>
                             <p><strong>
-                                <i class="fa-phone"></i> 000 000 0000 <br>
-                                <i class="fa-email"></i> email@gmanmail.com
+                                <a href=""><i class="fa-phone"></i> 000 000 0000</a>
+                                 <br>
+                                 <a href=""><i class="fa-email"></i> email@gmanmail.com</a>
+                                
                             </strong></p>
                             <p> You may also drop me a message using the contact form!</p>
                         </div>
@@ -128,10 +138,10 @@
                             </form>
                         </div>
                     </div>
-                    <div class="container">
+                    <div class="btm-scroll container">
                         <a href="#banner" class="scroll-text"><i class="fa-chevron-up"></i>  <br> Back To Top </a>
                     </div>
-                </div>
+                </section>
             </main>
         </div>
     </div>

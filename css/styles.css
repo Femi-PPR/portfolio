@@ -179,6 +179,7 @@ p {
   right: 0;
   bottom: 100%;
   left: 0;
+  transition: all 0.25s ease;
   height: calc(100% - 40px);
   padding-right: 20px;
   padding-left: 20px;
@@ -474,9 +475,7 @@ p {
 
 .test::before {
   content: url("https://api.iconify.design/codicon/vscode-insiders.svg");
-  font-size: 20px;
-  color: white;
-  background-color: white; }
+  font-size: 20px; }
 
 .fab-html::before {
   content: "";

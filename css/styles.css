@@ -128,7 +128,8 @@ p {
 
 .contact {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  justify-content: space-between; }
 
 .contact-container {
   display: flex;

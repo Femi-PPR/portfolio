@@ -158,6 +158,7 @@
 
 .project-description{
     @include abs-pos($r:0, $l:0, $b: 100%);
+    transition: all 0.25s ease;
     height: calc(100% - 40px);
     @include px(20px);
     background-color: rgba(black, 0.85);

@@ -90,3 +90,50 @@
     border-#{$direction}: none;
     margin-#{$direction}: 0;
 }
+
+@mixin scheme-card($colour, $flex-dir){
+    border: 3px solid $colour;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    flex: 1;
+
+    
+    
+    .logo{
+        width: 100%;
+        height: 150px;
+        background-color: $colour;
+    }
+    
+    .text{
+        padding: 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        *{
+            min-width: 0;
+            min-height: 0;
+        }
+        h2{
+            margin-bottom: 20px;
+            
+        }
+
+        a{
+            margin-top: auto;
+        }
+
+        @content;
+    }
+    
+    @include mq-range("sm", "xl"){
+        flex-direction: $flex-dir;
+
+        .logo{
+            min-width: 150px;
+            width: auto;
+            height: auto;
+        }
+    }
+}

@@ -2,6 +2,7 @@
     position: relative;
 }
 
+
 .sidebar{
     @include fixed-pos($t: 0, $l: 0, $r: 0);
     @include show-at-viewport("md");
@@ -10,6 +11,7 @@
     background-color: $colour-prim;
     border-right: 5px solid $colour-second;
 }
+
 
 .initials{
     font-size: 4rem;
@@ -23,6 +25,7 @@
     }
 }
 
+
 .socials{
     border-top: 5px solid $colour-second;
     padding-top: 25px;
@@ -30,6 +33,7 @@
     gap: 20px;
     justify-content: center;
 }
+
 
 .main-content{
     position: relative;
@@ -41,6 +45,7 @@
     }
 }
 
+
 .banner{
     width: 100%;
     height: 100vh;
@@ -50,6 +55,7 @@
     justify-content: center;
     z-index: -3;
 }
+
 
 .spectrum-background {
     background:
@@ -104,32 +110,33 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-}
 
-.contact-container{
-    display: flex;
-    flex-direction: column;
-    align-items: start;
-    justify-content: flex-start;
-    gap: 20px;
-    @include my(30px);
-    @include mq("xl"){
-        flex-direction: row;
-        @include my(auto);
+    &-container{
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: flex-start;
+        gap: 20px;
+        @include my(30px);
+        @include mq("xl"){
+            flex-direction: row;
+            @include my(auto);
+        }
+    }
+
+    &-text{
+        flex: 1;
+         h2{
+            margin-bottom: 10px;
+         }
+    }
+
+    &-wrapper{
+        flex: 3;
+        width: 100%;
     }
 }
 
-.contact-text{
-    flex: 1;
-     h2{
-        margin-bottom: 10px;
-     }
-}
-
-.contact-wrapper{
-    flex: 3;
-    width: 100%;
-}
 
 .wrapper-portfolio{
     display: flex;
@@ -141,6 +148,8 @@
         flex: 1 300px;
     }
 }
+
+
 .project-image{
     position: relative;
     width: 100%;
@@ -155,6 +164,7 @@
         object-position: top center;
     }
 }
+
 
 .project-description{
     @include abs-pos($r:0, $l:0, $b: 100%);
@@ -172,6 +182,7 @@
 
 }
 
+
 .tech-stack{
     @include abs-pos($b:0, $r: 0, $l:0);
     height: 40px;
@@ -185,15 +196,15 @@
 .portfolio{
     display: flex;
     align-items: center;
-}
 
-.portfolio-container{
-    @include my(30px);
-}
+    &-container{
+        @include my(30px);
+    }
 
-.portfolio-title{
-    font-size: 2.5rem;
-    @include my(30px);
+    &-title{
+        font-size: 2.5rem;
+        @include my(30px);
+    }
 }
 
 
@@ -250,6 +261,7 @@
     }
 }
 
+
 .scs-scheme{
     @include py(20px);
 
@@ -260,92 +272,36 @@
     }
 }
 
-.scheme-main{
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
 
-.scheme-cards{
-    display: flex;
-    flex-direction: column;
-    gap: 30px 20px;
-    @include mq("xl"){
-        flex-direction: row;
-    }
-}
-
-.treehouse{
-    border: 3px solid $colour-treehouse;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-
-    
-    
-    .logo{
-        width: 100%;
-        height: 150px;
-        background-color: $colour-treehouse;
-    }
-    
-    .text{
-        padding: 20px;
-        flex: 1;
+.scheme{
+    &-main{
+        min-height: 100vh;
         display: flex;
         flex-direction: column;
-        *{
-            min-width: 0;
-            min-height: 0;
+        justify-content: space-between;
+    }
+
+    &-cards{
+        display: flex;
+        flex-direction: column;
+        gap: 30px 20px;
+        @include mq("xl"){
+            flex-direction: row;
         }
-        h2{
-            margin-bottom: 20px;
-            
-        }
+    }
+}
+
+
+.treehouse{
+    @include scheme-card($colour-treehouse, row-reverse){
         p{
             margin-bottom: 20px;
         }
-
-        a{
-            margin-top: auto;
-        }
-    }
-    
-    @include mq-range("sm", "xl"){
-        flex-direction: row-reverse;
-
-        .logo{
-            min-width: 150px;
-            width: auto;
-            height: auto;
-        }
     }
 }
 
-
 .netmatters{
-    border: 3px solid $colour-netmatters;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    flex: 1;
-
-    .logo{
-        width: 100%;
-        height: 150px;
-        background-color: $colour-netmatters;
-    }
-
-    .text{
-        padding: 20px;
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-        h2{
-            margin-bottom: 20px;
-        }
+    @include scheme-card($colour-netmatters, row){
         ul{
             margin-bottom: 20px;
         }
@@ -354,23 +310,104 @@
             list-style-type: disc;
             list-style-position: inside;
         }
-
-        a{
-            margin-top: auto;
-        }
     }
-
-    @include mq-range("sm", "xl"){
-        flex-direction: row;
-
-        .logo{
-            min-width: 150px;
-            width: auto;
-            height: auto;
-        }
-    }
-
 }
+
+// .treehouse{
+//     border: 3px solid $colour-treehouse;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 10px;
+//     flex: 1;
+
+    
+    
+//     .logo{
+//         width: 100%;
+//         height: 150px;
+//         background-color: $colour-treehouse;
+//     }
+    
+//     .text{
+//         padding: 20px;
+//         flex: 1;
+//         display: flex;
+//         flex-direction: column;
+//         *{
+//             min-width: 0;
+//             min-height: 0;
+//         }
+//         h2{
+//             margin-bottom: 20px;
+            
+//         }
+//         p{
+//             margin-bottom: 20px;
+//         }
+
+//         a{
+//             margin-top: auto;
+//         }
+//     }
+    
+//     @include mq-range("sm", "xl"){
+//         flex-direction: row-reverse;
+
+//         .logo{
+//             min-width: 150px;
+//             width: auto;
+//             height: auto;
+//         }
+//     }
+// }
+
+
+// .netmatters{
+//     border: 3px solid $colour-netmatters;
+//     display: flex;
+//     flex-direction: column;
+//     gap: 10px;
+//     flex: 1;
+
+//     .logo{
+//         width: 100%;
+//         height: 150px;
+//         background-color: $colour-netmatters;
+//     }
+
+//     .text{
+//         padding: 20px;
+//         flex: 1;
+//         display: flex;
+//         flex-direction: column;
+//         h2{
+//             margin-bottom: 20px;
+//         }
+//         ul{
+//             margin-bottom: 20px;
+//         }
+
+//         li{
+//             list-style-type: disc;
+//             list-style-position: inside;
+//         }
+
+//         a{
+//             margin-top: auto;
+//         }
+//     }
+
+//     @include mq-range("sm", "xl"){
+//         flex-direction: row;
+
+//         .logo{
+//             min-width: 150px;
+//             width: auto;
+//             height: auto;
+//         }
+//     }
+
+// }
 
 .btm-scroll{
     margin-top: 20px;

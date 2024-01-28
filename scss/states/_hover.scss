@@ -15,6 +15,10 @@ a:hover{
     border-bottom: 2px solid $colour-second;
 }
 
+.scroll-text:hover{
+    text-decoration: none;
+}
+
 .portfolio-article:hover{
     .project-description{
         display: flex;

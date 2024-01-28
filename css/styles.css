@@ -172,7 +172,7 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center; }
+    object-position: top center; }
 
 .project-description {
   position: absolute;
@@ -637,6 +637,9 @@ a:hover {
 .nav-link-side:hover {
   text-decoration: none;
   border-bottom: 2px solid #9dbc98; }
+
+.scroll-text:hover {
+  text-decoration: none; }
 
 .portfolio-article:hover .project-description {
   display: flex;

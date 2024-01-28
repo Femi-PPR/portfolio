@@ -14,9 +14,9 @@
 
 
     input, textarea{
-        background-color: darken($colour-second, 0%);
+        background-color: $colour-second;
         border-radius: 3px;
-        border: 2px solid darken($colour-second, 0%);
+        border: 2px solid $colour-second;
         border: none;
         padding: 15px 25px;
         box-shadow: none;
@@ -44,8 +44,8 @@
 #submit{
     @include py(20px);
     background-color: $colour-prim;
-    border: 4px solid darken($colour-second, 0%);
-    color: darken($colour-second, 0%);
+    border: 4px solid $colour-second;
+    color: $colour-second;
     border-radius: 5px;
     font-weight: bold;
     
@@ -54,7 +54,7 @@
     }
 
     &:hover{
-        background-color: darken($colour-second, 0%);
+        background-color: $colour-second;
         cursor: pointer;
         color: $colour-prim;
     }

@@ -372,7 +372,6 @@ p {
   .contact-form input, .contact-form textarea {
     background-color: #9dbc98;
     border-radius: 3px;
-    border: 2px solid #9dbc98;
     border: none;
     padding: 15px 25px;
     box-shadow: none; }
@@ -620,7 +619,7 @@ p {
   padding-bottom: 5px; }
 
 .contact-form input:focus, .contact-form textarea:focus {
-  border: 2px solid #638889; }
+  outline: 2px solid #638889; }
 
 a:hover {
   text-decoration: underline; }

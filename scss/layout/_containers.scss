@@ -49,6 +49,7 @@
 .banner{
     width: 100%;
     height: 100vh;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -56,6 +57,63 @@
     z-index: -3;
 }
 
+
+
+
+
+.spectrum-bg-tl {
+    @include abs-pos($t:0, $l: 0);
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    background:
+        linear-gradient(
+            -225deg,
+            $colour-prim-drkr 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        );
+    background-size: 200% 200%;
+    background-position: 25% 25%;
+}
+
+.spectrum-bg-br {
+    @include abs-pos($t:0, $l: 0);
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    background:
+       linear-gradient(
+            -45deg,
+            $colour-prim-drkr 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        );
+}
+
+.spectrum-bg-bl {
+    @include abs-pos($t:0, $l: 0);
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    background:
+       linear-gradient(
+            45deg,
+            $colour-second 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        );
+}
+
+.spectrum-bg-tr {
+    @include abs-pos($t:0, $l: 0);
+    width: 100%;
+    height: 100%;
+    mix-blend-mode: multiply;
+    background:
+       linear-gradient(
+            225deg,
+            $colour-second 0 (1 * $grad-percent),
+            transparent 0 (2 * $grad-percent),
+        );
+}
 
 .spectrum-background {
     background:
@@ -312,102 +370,6 @@
         }
     }
 }
-
-// .treehouse{
-//     border: 3px solid $colour-treehouse;
-//     display: flex;
-//     flex-direction: column;
-//     gap: 10px;
-//     flex: 1;
-
-    
-    
-//     .logo{
-//         width: 100%;
-//         height: 150px;
-//         background-color: $colour-treehouse;
-//     }
-    
-//     .text{
-//         padding: 20px;
-//         flex: 1;
-//         display: flex;
-//         flex-direction: column;
-//         *{
-//             min-width: 0;
-//             min-height: 0;
-//         }
-//         h2{
-//             margin-bottom: 20px;
-            
-//         }
-//         p{
-//             margin-bottom: 20px;
-//         }
-
-//         a{
-//             margin-top: auto;
-//         }
-//     }
-    
-//     @include mq-range("sm", "xl"){
-//         flex-direction: row-reverse;
-
-//         .logo{
-//             min-width: 150px;
-//             width: auto;
-//             height: auto;
-//         }
-//     }
-// }
-
-
-// .netmatters{
-//     border: 3px solid $colour-netmatters;
-//     display: flex;
-//     flex-direction: column;
-//     gap: 10px;
-//     flex: 1;
-
-//     .logo{
-//         width: 100%;
-//         height: 150px;
-//         background-color: $colour-netmatters;
-//     }
-
-//     .text{
-//         padding: 20px;
-//         flex: 1;
-//         display: flex;
-//         flex-direction: column;
-//         h2{
-//             margin-bottom: 20px;
-//         }
-//         ul{
-//             margin-bottom: 20px;
-//         }
-
-//         li{
-//             list-style-type: disc;
-//             list-style-position: inside;
-//         }
-
-//         a{
-//             margin-top: auto;
-//         }
-//     }
-
-//     @include mq-range("sm", "xl"){
-//         flex-direction: row;
-
-//         .logo{
-//             min-width: 150px;
-//             width: auto;
-//             height: auto;
-//         }
-//     }
-
-// }
 
 .btm-scroll{
     margin-top: 20px;

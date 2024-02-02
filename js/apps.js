@@ -1,135 +1,62 @@
-//---------------------- canvas animation ---------------------------------------
-let bg =
-  "linear-gradient(-45deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(-225deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(225deg, #9dbc98 0 25%, transparent 0 50%), linear-gradient(45deg, #9dbc98 0 25%, transparent 0 50%);";
+const bannerBGs = {
+  "banner-bg-tl": { startX: "50%", startY: "50%", endX: "25%", endY: "25%" },
+  "banner-bg-tr": { startX: "100%", startY: "0%", endX: "75%", endY: "25%" },
+  "banner-bg-br": { startX: "50%", startY: "50%", endX: "75%", endY: "75%" },
+  "banner-bg-bl": { startX: "0%", startY: "100%", endX: "25%", endY: "75%" },
+};
 
-$(".sidebar").hide();
-$(".main-content").css({ margin: "0px", width: "100%" });
+const closingBGs = {
+  "closing-bg-tl": { startX: "50%", startY: "50%", endX: "0%", endY: "0%" },
+  "closing-bg-br": { startX: "50%", startY: "50%", endX: "100%", endY: "100%" },
+};
 
-const canvas = document.createElement("canvas");
-const ctx = canvas.getContext("2d");
+function addBGAnimation(bgPositions, duration = 1200) {
+  for (let bg in bgPositions) {
+    $bgObj = $(`.${bg}`).css({
+      backgroundPositionX: bgPositions[bg].startX,
+      backgroundPositionY: bgPositions[bg].startY,
+    });
 
-$("#banner").prepend(
-  $(canvas).css({
-    position: "absolute",
-    top: "0",
-    left: "0",
-    width: "100%",
-    height: "100%",
-    "z-index": "3",
-  })
-);
-console.log(`yada ${$(canvas).width()}`);
+    if (["banner-bg-br", "banner-bg-tl"].includes(bg)) {
+      $bgObj = $bgObj.delay(600);
+    }
 
-class Point {
-  constructor(x, y) {
-    this.x = x;
-    this.y = y;
-  }
-
-  dist(p = null) {
-    console.log(`${this.x} ${this.y}`);
-    if (p === null) return Math.sqrt(this.x ** 2 + this.y ** 2);
-
-    return Math.sqrt((p.x - this.x) ** 2 + (p.y - this.y) ** 2);
-  }
-
-  createPointFromHere(dist, angle) {
-    console.log(`point: ${this}, dist ${dist}, angle ${angle}`);
-    return new Point(
-      this.x + dist * Math.sin(angle),
-      this.y + dist * Math.cos(angle)
+    $bgObj.animate(
+      {
+        backgroundPositionX: bgPositions[bg].endX,
+        backgroundPositionY: bgPositions[bg].endY,
+      },
+      duration,
+      () => {
+        $(".banner-bg").css({ zIndex: "-3" });
+      }
     );
   }
 }
 
-class Cover {
-  constructor(percent, angle, colour) {
-    this.percent = percent;
-    this.angle = (angle * Math.PI) / 180;
-    this.colour = colour;
-    let $canvas = $(canvas);
-    this.w = $canvas.width();
-    this.h = canvas.height();
-  }
+$(document).ready(() => {
+  $bannerScrollText = $(".banner .scroll-text");
+  console.log($bannerScrollText);
+  $bannerScrollText.css({ opacity: "0" });
+  addBGAnimation(bannerBGs);
+  $bannerScrollText.delay(1500).animate({ opacity: "1" }, 500);
+});
 
-  #innerAngle2() {
-    let inner = (this.angle % 2) * Math.PI;
-    if (inner < 0) inner += 2 * Math.PI;
+// $(".main-content").on("click", () => {
+//   $(".closing-bg").show();
+//   addBGAnimation(closingBGs, 800);
+// });
 
-    if (inner < Math.PI / 4) return compAngle - Math.PI / 4;
-    else if (inner < Math.PI / 2) return Math.PI / 4 - compAngle;
-    else if (inner < (Math.PI * 3) / 4) return (Math.PI * 3) / 4 - inner;
-    else if (inner < Math.PI) return inner - (Math.PI * 3) / 4;
-    else if (inner < (Math.PI * 5) / 4) return (Math.PI * 5) / 4 - inner;
-    else if (inner < (Math.PI * 3) / 2) return inner - (Math.PI * 5) / 4;
-    else if (inner < (Math.PI * 7) / 4) return (Math.PI * 7) / 4 - inner;
-    else if (inner < 2 * Math.PI) return inner - (Math.PI * 7) / 4;
-  }
-
-  #innerAngle(cornerAngle) {
-    let compAngle = Math.PI / 2 - cornerAngle;
-    let inner = this.angle % (2 * Math.PI);
-    console.log(`inner ${inner}`);
-    if (inner < 0) inner += 2 * Math.PI;
-
-    if (inner <= compAngle) return compAngle - inner;
-    else if (inner <= Math.PI / 2) return inner - compAngle;
-    else if (inner <= Math.PI / 2 + cornerAngle)
-      return Math.PI / 2 + cornerAngle - inner;
-    else if (inner <= Math.PI) return inner - Math.PI / 2 - cornerAngle;
-    else if (inner <= Math.PI + compAngle) return Math.PI + compAngle - inner;
-    else if (inner <= (Math.PI * 3) / 2) return inner - Math.PI - compAngle;
-    else if (inner <= (Math.PI * 3) / 2 + cornerAngle)
-      return (Math.PI * 3) / 2 + cornerAngle - inner;
-    else if (inner <= 2 * Math.PI)
-      return inner - (Math.PI * 3) / 2 - cornerAngle;
-  }
-
-  nearestCorner() {}
-
-  #calcGradDim() {
-    let $canvas = $(canvas);
-    console.log(`width ${$canvas.width()}`);
-    let center = new Point($canvas.width() / 2, $canvas.height() / 2);
-
-    let diag = center.dist();
-    let cornerAngle = Math.atan2(center.y, center.x);
-    console.log(`center ${cornerAngle}`);
-    let angle = this.#innerAngle(cornerAngle);
-    console.log(`angle ${angle}`);
-    let dist = diag * Math.cos(angle);
-    let start = center.createPointFromHere(-dist, this.angle);
-    let end = start.createPointFromHere(2 * this.percent * dist, this.angle);
-    return [start, end];
-  }
-
-  draw() {
-    // let startEnd = this.#calcGradDim();
-    // let start = startEnd[0];
-    // let end = startEnd[1];
-    // console.log(start);
-    let $canvas = $(canvas);
-    let gradient = ctx.createLinearGradient(
-      0,
-      0,
-      $canvas.height(),
-      $canvas.width()
-    );
-    gradient.addColorStop(this.percent, this.colour);
-    gradient.addColorStop(this.percent, "transparent");
-    ctx.fillStyle = gradient;
-    ctx.fillRect(0, 0, $canvas.width(), $canvas.height());
-  }
-}
-const cover = new Cover(0.25, 45, "red");
-//cover.draw();
-const gradient = -270 % 180;
-console.log(gradient);
-
-$(".spectrum-background").on("click", () => {
-  console.log("clicked");
-  document.querySelector(".spectrum-background").style.background =
-    "linear-gradient(-45deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(-225deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(225deg, #9dbc98 0 25%, transparent 0 50%), linear-gradient(45deg, #9dbc98 0 25%, transparent 0 50%);";
+$(".closing-link").on("click", (event) => {
+  event.preventDefault();
+  let duration = 800;
+  console.log(event);
+  $(".closing-bg").show();
+  addBGAnimation(closingBGs, duration);
+  setTimeout(() => {
+    window.location.href = $(event.currentTarget).attr("href");
+    // $(".closing-bg").hide();
+  }, duration);
 });
 
 //---------------------- form validation ---------------------------------------

@@ -510,7 +510,8 @@ p {
   border: 5px solid #9dbc98; }
 
 .nav-tab {
-  margin-top: 50px; }
+  margin-top: 50px;
+  background-color: #f3f3f3; }
 
 .tab-items {
   display: flex;

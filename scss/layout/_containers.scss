@@ -11,6 +11,41 @@
     height: 100vh;
     background-color: $colour-prim;
     border-right: 5px solid $colour-second;
+
+    &-pullout{
+        @include fixed-pos($t:0, $b:0, $l: 200px);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        background-color: $colour-second;
+        // border-right: 5px solid $colour-second;
+    }
+
+    &-arrow{
+        position: relative;
+        display: block;
+        &::before{
+            content: "";
+            display: block;
+            position: relative;
+            top: -1 * $diff;
+            height: 3px;
+            width: 15px;
+            transform: rotate($deg);
+            background-color: $colour-prim;
+        }
+        &::after{
+            content: "";
+            display: block;
+            position: relative;
+            top: $diff;
+            height: 3px;
+            width: 15px;
+            transform: rotate(-1 * $deg);
+            background-color: $colour-prim;
+        }
+    }
 }
 
 
@@ -494,4 +529,53 @@
 
 .btm-scroll{
     margin-top: 20px;
+}
+
+.slick-list{
+    border: 5px solid $colour-second;
+}
+
+.nav-tab{
+    margin-top: 50px;
+}
+
+.tab-items{
+    display: flex;
+    // @include abs-pos($b: 100%);
+    width: 100%;
+    height: 30px;
+    justify-content: space-around;
+
+    li{
+        background-color: $colour-prim-drkr;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        &:not(.slick-active):hover{
+            background-color: darken($colour-prim-drkr, 10%);
+        }
+    }
+
+    .fab{
+        &-html::before{
+            color: black;
+        }
+
+        &-css::before{
+            color: black;
+        }
+
+        &-js::before{
+            color: black;
+        }
+    }
+
+    .slick-active{
+        background-color: $colour-second;
+        font-weight: 700;
+        color: white;
+    }
 }

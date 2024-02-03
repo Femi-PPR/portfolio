@@ -67,6 +67,37 @@ p {
   @media screen and (min-width: 768px) {
     .sidebar {
       display: block; } }
+  .sidebar-pullout {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    background-color: #9dbc98; }
+  .sidebar-arrow {
+    position: relative;
+    display: block; }
+    .sidebar-arrow::before {
+      content: "";
+      display: block;
+      position: relative;
+      top: -2px;
+      height: 3px;
+      width: 15px;
+      transform: rotate(35deg);
+      background-color: #F9EFDB; }
+    .sidebar-arrow::after {
+      content: "";
+      display: block;
+      position: relative;
+      top: 2px;
+      height: 3px;
+      width: 15px;
+      transform: rotate(-35deg);
+      background-color: #F9EFDB; }
 
 .initials {
   font-size: 4rem;
@@ -475,6 +506,37 @@ p {
 .btm-scroll {
   margin-top: 20px; }
 
+.slick-list {
+  border: 5px solid #9dbc98; }
+
+.nav-tab {
+  margin-top: 50px; }
+
+.tab-items {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  justify-content: space-around; }
+  .tab-items li {
+    background-color: #ebd9b4;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px; }
+    .tab-items li:not(.slick-active):hover {
+      background-color: #e0c58c; }
+  .tab-items .fab-html::before {
+    color: black; }
+  .tab-items .fab-css::before {
+    color: black; }
+  .tab-items .fab-js::before {
+    color: black; }
+  .tab-items .slick-active {
+    background-color: #9dbc98;
+    font-weight: 700;
+    color: white; }
+
 .scroll-text {
   display: block;
   text-align: center; }
@@ -606,6 +668,10 @@ p {
   font-size: 20px; }
 .fab-css::before {
   content: "";
+  color: white;
+  font-size: 20px; }
+.fab-js::before {
+  content: "";
   color: white;
   font-size: 20px; }
 .fab-sass::before {

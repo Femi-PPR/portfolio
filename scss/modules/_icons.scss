@@ -78,6 +78,10 @@
         @include icon($icon-css, white, 20px);
     }
 
+    &-js{
+        @include icon($icon-js, white, 20px);
+    }
+
     &-sass{
         @include icon($icon-sass, white, 20px);
     }

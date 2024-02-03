@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script>document.querySelector("html").className = "js";</script>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
     <link rel="stylesheet" href="css/styles.css">
     <link rel="shortcut icon" href="images/icons/favicon.ico">
     <title>Femi's Portfolio</title>
@@ -46,10 +48,66 @@
                         <p>Coming Soon</p>
                     </div>
                 </div>
+                <section>
+                    <div class="container">
+                        <div class="nav-tab">
+                            <div>
+                                <pre>
+                                    <code class="language-html">
+&lt;div class="banner-bg"&gt;
+    &lt;span class="banner-bg-tl"&gt;&lt;/span&gt;
+    &lt;span class="banner-bg-tr"&gt;&lt;/span&gt;
+    &lt;span class="banner-bg-bl"&gt;&lt;/span&gt;
+    &lt;span class="banner-bg-br"&gt;&lt;/span&gt;
+&lt;/div&gt;
+                                    </code>
+                                </pre>
+                            </div>
+                            <div>
+                                <pre><code class="language-js">
+const bannerBGs = {
+  "banner-bg-tl": { startX: "50%", startY: "50%", endX: "25%", endY: "25%" },
+  "banner-bg-tr": { startX: "100%", startY: "0%", endX: "75%", endY: "25%" },
+  "banner-bg-br": { startX: "50%", startY: "50%", endX: "75%", endY: "75%" },
+  "banner-bg-bl": { startX: "0%", startY: "100%", endX: "25%", endY: "75%" },
+};
+
+function addBGAnimation(bgPositions, duration = 1200) {
+  for (let bg in bgPositions) {
+    $bgObj = $(`.${bg}`);
+
+    if (["banner-bg-br", "banner-bg-tl"].includes(bg)) {
+      $bgObj = $bgObj.delay(600);
+    }
+
+    $bgObj.animate(
+      {
+        backgroundPositionX: bgPositions[bg].endX,
+        backgroundPositionY: bgPositions[bg].endY,
+      },
+      duration,
+      () => {
+        $(".banner-bg").css({ zIndex: "-3" });
+      }
+    );
+  }
+}
+
+$(document).ready(() => {
+  addBGAnimation(bannerBGs);
+});
+                                </code></pre>
+                                </div>
+                            <div>content 3</div>
+                        </div>
+                    </div>
+                </section>
             </main>
         </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/apps.js"></script>
 </body>
 </html>

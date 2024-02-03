@@ -1,3 +1,6 @@
+hljs.highlightAll();
+//---------------------- banner animations ---------------------------------------
+
 const bannerBGs = {
   "banner-bg-tl": { startX: "50%", startY: "50%", endX: "25%", endY: "25%" },
   "banner-bg-tr": { startX: "100%", startY: "0%", endX: "75%", endY: "25%" },
@@ -12,10 +15,7 @@ const closingBGs = {
 
 function addBGAnimation(bgPositions, duration = 1200) {
   for (let bg in bgPositions) {
-    $bgObj = $(`.${bg}`).css({
-      backgroundPositionX: bgPositions[bg].startX,
-      backgroundPositionY: bgPositions[bg].startY,
-    });
+    $bgObj = $(`.${bg}`);
 
     if (["banner-bg-br", "banner-bg-tl"].includes(bg)) {
       $bgObj = $bgObj.delay(600);
@@ -42,11 +42,6 @@ $(document).ready(() => {
   $bannerScrollText.delay(1500).animate({ opacity: "1" }, 500);
 });
 
-// $(".main-content").on("click", () => {
-//   $(".closing-bg").show();
-//   addBGAnimation(closingBGs, 800);
-// });
-
 $(".closing-link").on("click", (event) => {
   event.preventDefault();
   let duration = 800;
@@ -55,7 +50,6 @@ $(".closing-link").on("click", (event) => {
   addBGAnimation(closingBGs, duration);
   setTimeout(() => {
     window.location.href = $(event.currentTarget).attr("href");
-    // $(".closing-bg").hide();
   }, duration);
 });
 
@@ -70,7 +64,7 @@ const inputText = {
 
 function invalidInput(input) {
   if (input.validity.valueMissing) {
-    let msg = object.hasOwn(inputText, input.id)
+    let msg = Object.hasOwn(inputText, input.id)
       ? `please enter in your ${inputText[input.id]}`
       : "please fill in this field";
     input.setCustomValidity(msg);
@@ -93,4 +87,35 @@ $form.on("click", "button", () => {
       invalidInput(input);
     }
   }
+});
+
+$(document).ready(function () {
+  // $("pre.code").highlight({
+  //   source: false,
+  //   zebra: false,
+  //   list: "ol",
+  // });
+
+  $(".nav-tab").slick({
+    arrows: false,
+    dots: true,
+    dotsClass: "tab-items",
+    adaptiveHeight: true,
+    customPaging: (slick, index) => {
+      console.log(slick);
+      let paging;
+      switch (index) {
+        case 0:
+          paging = "HTML";
+          break;
+        case 1:
+          paging = "CSS";
+          break;
+        case 2:
+          paging = "JS";
+          break;
+      }
+      return `<i class="fab-${paging.toLowerCase()}"></i> ${paging}`;
+    },
+  });
 });

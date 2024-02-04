@@ -87,4 +87,55 @@ $tech-icons: (
     "jet-brains": "https://api.iconify.design/simple-icons/jetbrains.svg",
 );
 
+$bg-properties: (
+    ".banner-bg-br": (
+        "deg": -45deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 75%,
+        "bg-y": 75%,
+    ),
+    ".banner-bg-bl": (
+        "deg": 45deg,
+        "colour": $colour-second,
+        "bg-x": 25%,
+        "bg-y": 75%,
+    ),
+    ".banner-bg-tr": (
+        "deg": 225deg,
+        "colour": $colour-second,
+        "bg-x": 75%,
+        "bg-y": 25%,
+    ),
+    ".banner-bg-tl": (
+        "deg": -225deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 25%,
+        "bg-y": 25%,
+    ),
+    ".js .banner-bg-br": (
+        "deg": -45deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 50%,
+        "bg-y": 50%,
+    ),
+    ".js .banner-bg-bl": (
+        "deg": 45deg,
+        "colour": $colour-second,
+        "bg-x": 0%,
+        "bg-y": 100%,
+    ),
+    ".js .banner-bg-tr": (
+        "deg": 225deg,
+        "colour": $colour-second,
+        "bg-x": 100%,
+        "bg-y": 0%,
+    ),
+    ".js .banner-bg-tl": (
+        "deg": -225deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 50%,
+        "bg-y": 50%,
+    ),
+);
+
 $contact-grid-areas : ("fname","lname","email","subject","message","submit");

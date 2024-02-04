@@ -95,27 +95,28 @@ $(document).ready(function () {
   //   zebra: false,
   //   list: "ol",
   // });
+  const paging = (slick, index) => {
+    console.log(slick);
+    let paging;
+    switch (index) {
+      case 0:
+        paging = "HTML";
+        break;
+      case 1:
+        paging = "Sass";
+        break;
+      case 2:
+        paging = "JS";
+        break;
+    }
+    return `<i class="fab-${paging.toLowerCase()}"></i> ${paging}`;
+  };
 
   $(".nav-tab").slick({
     arrows: false,
     dots: true,
     dotsClass: "tab-items",
     adaptiveHeight: true,
-    customPaging: (slick, index) => {
-      console.log(slick);
-      let paging;
-      switch (index) {
-        case 0:
-          paging = "HTML";
-          break;
-        case 1:
-          paging = "CSS";
-          break;
-        case 2:
-          paging = "JS";
-          break;
-      }
-      return `<i class="fab-${paging.toLowerCase()}"></i> ${paging}`;
-    },
+    customPaging: paging,
   });
 });

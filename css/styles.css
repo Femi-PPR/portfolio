@@ -164,32 +164,14 @@ p {
     background-size: 200% 200%;
     background-position: 50% 50%; }
 
-.banner-bg-tl {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(-225deg, #ebd9b4 0 25%, transparent 0 50%);
-  background-size: 200% 200%;
-  background-position: 25% 25%; }
-
-@keyframes gradient {
-  0% {
-    background-position: 0% 50%; }
-  50% {
-    background-position: 100% 50%; }
-  100% {
-    background-position: 0% 50%; } }
 .banner-bg-br {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(-45deg, #ebd9b4 0 25%, transparent 0 50%);
+  background: linear-gradient(-45deg, #ebd9b4 25%, transparent 25%);
   background-size: 200% 200%;
   background-position: 75% 75%; }
 
@@ -197,10 +179,10 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(45deg, #9dbc98 0 25%, transparent 0 50%);
+  background: linear-gradient(45deg, #9dbc98 25%, transparent 25%);
   background-size: 200% 200%;
   background-position: 25% 75%; }
 
@@ -208,32 +190,32 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(225deg, #9dbc98 0 25%, transparent 0 50%);
+  background: linear-gradient(225deg, #9dbc98 25%, transparent 25%);
   background-size: 200% 200%;
   background-position: 75% 25%; }
 
-.js .banner-bg-tl {
+.banner-bg-tl {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(-225deg, #ebd9b4 0 25%, transparent 0 50%);
+  background: linear-gradient(-225deg, #ebd9b4 25%, transparent 25%);
   background-size: 200% 200%;
-  background-position: 50% 50%; }
+  background-position: 25% 25%; }
 
 .js .banner-bg-br {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(-45deg, #ebd9b4 0 25%, transparent 0 50%);
+  background: linear-gradient(-45deg, #ebd9b4 25%, transparent 25%);
   background-size: 200% 200%;
   background-position: 50% 50%; }
 
@@ -241,10 +223,10 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(45deg, #9dbc98 0 25%, transparent 0 50%);
+  background: linear-gradient(45deg, #9dbc98 25%, transparent 25%);
   background-size: 200% 200%;
   background-position: 0% 100%; }
 
@@ -252,12 +234,23 @@ p {
   position: absolute;
   top: 0;
   left: 0;
+  mix-blend-mode: multiply;
   width: 100%;
   height: 100%;
-  mix-blend-mode: multiply;
-  background: linear-gradient(225deg, #9dbc98 0 25%, transparent 0 50%);
+  background: linear-gradient(225deg, #9dbc98 25%, transparent 25%);
   background-size: 200% 200%;
   background-position: 100% 0%; }
+
+.js .banner-bg-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  mix-blend-mode: multiply;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(-225deg, #ebd9b4 25%, transparent 25%);
+  background-size: 200% 200%;
+  background-position: 50% 50%; }
 
 .spectrum-background {
   background: linear-gradient(-45deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(-225deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(225deg, #9dbc98 0 25%, transparent 0 50%), linear-gradient(45deg, #9dbc98 0 25%, transparent 0 50%);
@@ -529,7 +522,7 @@ p {
       background-color: #e0c58c; }
   .tab-items .fab-html::before {
     color: black; }
-  .tab-items .fab-css::before {
+  .tab-items .fab-sass::before {
     color: black; }
   .tab-items .fab-js::before {
     color: black; }
@@ -537,6 +530,17 @@ p {
     background-color: #9dbc98;
     font-weight: 700;
     color: white; }
+    .tab-items .slick-active .fab-html::before {
+      color: white; }
+    .tab-items .slick-active .fab-sass::before {
+      color: white; }
+    .tab-items .slick-active .fab-js::before {
+      color: white; }
+
+.code-desciption {
+  padding: 1rem;
+  background-color: #9dbc98;
+  color: white; }
 
 .scroll-text {
   display: block;

@@ -1,11 +1,11 @@
-hljs.highlightAll();
+hljs.highlightAll(); // syntax highlighter for coding examples
+
 //---------------------- variables ---------------------------------------
 const CLOSING_DUR = 800;
 const MQ_MEDIUM = window.matchMedia("(max-width: 767px)");
 const MQ_SMALL = window.matchMedia("(min-width: 576px)");
 
 //---------------------- banner animations ---------------------------------------
-
 const bannerBGs = {
     "banner-bg-tl": { startX: "50%", startY: "50%", endX: "25%", endY: "25%" },
     "banner-bg-tr": { startX: "100%", startY: "0%", endX: "75%", endY: "25%" },

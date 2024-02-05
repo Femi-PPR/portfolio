@@ -8,9 +8,10 @@
     // @include show-at-viewport("md");
     z-index: 10;
     width: 200px;
-    height: 100vh;
+    height: 100dvh;
     background-color: $colour-prim;
     border-right: 5px solid $colour-second;
+    overflow-y: scroll;
 
     @include mq("md"){
         @include fixed-pos($t: 0, $l: 0, $r: 0);
@@ -99,7 +100,7 @@
 
 .banner{
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
     position: relative;
     display: flex;
     flex-direction: column;

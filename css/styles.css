@@ -65,9 +65,10 @@ code {
   left: -200px;
   z-index: 10;
   width: 200px;
-  height: 100vh;
+  height: 100dvh;
   background-color: #F9EFDB;
-  border-right: 5px solid #9dbc98; }
+  border-right: 5px solid #9dbc98;
+  overflow-y: scroll; }
   @media screen and (min-width: 768px) {
     .sidebar {
       position: fixed;
@@ -141,7 +142,7 @@ code {
 
 .banner {
   width: 100%;
-  height: 100vh;
+  height: 100dvh;
   position: relative;
   display: flex;
   flex-direction: column;

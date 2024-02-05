@@ -34,6 +34,7 @@
                 </div>
             </div>
         </div>
+        <div class="sidebar-pullout"><span class="sidebar-arrow"></span></div>
         <div class="">
             <main class="main-content">
                 <div id="banner" class="banner">
@@ -45,13 +46,17 @@
                     </div>
                     <div id="diamond" class="banner-text">
                         <h1>Coding Examples</h1>
-                        <p>Coming Soon</p>
                     </div>
+                    <a href="#examples" class="scroll-text">Scroll Down <br> <i class="fa-chevron-down"></i></a>
                 </div>
-                <section class="coding-examples">
+                <section id="examples" class="coding-examples">
                     <div class="container">
-                        <div class="nav-tab">
-                            <div>
+                        <h2 class="example-title">Banner Background Animation</h2>
+                        <div class="nav-tabs">
+                            <div class="nav-tab">
+                                <div class="code-desciption">
+                                    <p>This HTML code sets up a basic structure for a banner background with separate elements representing each corner.</p>
+                                </div>
                                 <pre>
                                     <code class="language-html">
 &lt;div class="banner-bg"&gt;
@@ -63,7 +68,10 @@
                                     </code>
                                 </pre>
                             </div>
-                            <div>
+                            <div class="nav-tab">
+                                    <div class="code-desciption">
+                                        <p>This Sass code defines styles for different banner background elements using Sass variables, mixins, and CSS properties.</p>
+                                    </div>
                                 <pre><code class="language-scss">
 $bg-properties: (
     ".banner-bg-br": (
@@ -108,11 +116,10 @@ $bg-properties: (
     }
 }
                                 </code></pre>
-                                </div>
-                            <div>
-                                <div>
+                            </div>
+                            <div class="nav-tab">
                                     <div class="code-desciption">
-                                        <p>This code animates the positions of background banner elements on a webpage, transitioning them to open up when the page is loaded. There z-index is also changed so that the user can click on "Scroll Down" link in the banner.</p>
+                                        <p>This JavaScript code animates the positions of background banner elements on a webpage, transitioning them to open up when the page is loaded.</p>
                                     </div>
                                 <pre><code class="language-js">
 const bannerBGs = {
@@ -147,12 +154,13 @@ $(document).ready(() => {
   addBGAnimation(bannerBGs);
 });
                             </code></pre>
-
-                                </div>
                             </div>
                         </div>
                     </div>
                 </section>
+                <div class="btm-scroll container">
+                    <a href="#banner" class="scroll-text"><i class="fa-chevron-up"></i>  <br> Back To Top </a>
+                </div>
             </main>
         </div>
     </div>

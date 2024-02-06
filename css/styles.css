@@ -37,6 +37,9 @@ body {
   font-family: "Titillium Web", "Trebuchet MS", sans-serif;
   background-color: #F9EFDB; }
 
+textarea {
+  font-family: "Titillium Web", "Trebuchet MS", sans-serif; }
+
 section {
   min-height: 100vh; }
 
@@ -550,7 +553,8 @@ code {
         height: auto; } }
 
 .btm-scroll {
-  margin-top: 20px; }
+  margin-top: 20px;
+  margin-bottom: 5px; }
 
 .slick-list {
   border: 5px solid #9dbc98; }

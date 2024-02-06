@@ -13,6 +13,10 @@ body{
     background-color: $colour-prim;
 }
 
+textarea{
+    font-family: $stack-titillium;
+}
+
 section{
     min-height: 100vh;
 }

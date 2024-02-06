@@ -67,14 +67,17 @@ code {
   width: 200px;
   height: 100dvh;
   background-color: #F9EFDB;
-  border-right: 5px solid #9dbc98;
-  overflow-y: scroll; }
+  border-right: 5px solid #9dbc98; }
   @media screen and (min-width: 768px) {
     .sidebar {
       position: fixed;
       top: 0;
       right: 0;
       left: 0; } }
+  @media screen and (max-height: 670px) {
+    .sidebar {
+      overflow-y: scroll;
+      overflow-x: hidden; } }
   .sidebar-pullout {
     position: fixed;
     top: 0;

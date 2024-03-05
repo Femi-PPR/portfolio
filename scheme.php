@@ -36,7 +36,7 @@
                                     topics from basic HTML to C# programming, iOS development, data analysis, and more.
                                     By completing courses users can earn points, allowing them to track their progress
                                     and see how much they've covered in certain areas.</p>
-                                <p>Current Score: 6,383</p>
+                                <p>Current Score: 10,468</p>
                                 <a href="https://teamtreehouse.com/profiles/olorunfemioladapo" target="_blank">Find out
                                     more <i class="icon-rarrow"></i></a>
                             </div>
@@ -72,7 +72,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/variables.js"></script>
     <script src="js/banner.js"></script>
     <script src="js/mobileSidebar.js"></script>

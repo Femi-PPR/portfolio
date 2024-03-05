@@ -130,3 +130,13 @@
         height: 100px;
     }
 }
+
+.i{
+    &-tailwind{
+        @include mask-icon($icon-url-tailwind, white, 21px);
+    }
+
+    &-php{
+        @include bg-icon($icon-url-php, 19px);
+    }
+}

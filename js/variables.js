@@ -1,0 +1,1 @@
+const CLOSING_DUR = 800;

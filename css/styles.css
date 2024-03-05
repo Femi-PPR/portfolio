@@ -42,6 +42,11 @@ textarea {
 
 section {
   min-height: 100vh; }
+  @media screen and (min-width: 1536px) {
+    section {
+      min-height: auto;
+      padding-top: 50px;
+      padding-bottom: 50px; } }
 
 a {
   text-decoration: none;
@@ -477,6 +482,11 @@ code {
   display: flex;
   flex-direction: column;
   justify-content: space-between; }
+  @media screen and (min-width: 1536px) {
+    .scheme-main {
+      min-height: auto;
+      padding-top: 50px;
+      padding-bottom: 50px; } }
 .scheme-cards {
   display: flex;
   flex-direction: column;
@@ -633,10 +643,12 @@ code {
   gap: 15px 20px; }
   @media screen and (min-width: 480px) {
     .contact-form {
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-areas: "fname lname" "email email" "subject subject" "message message" "submit ."; } }
+      grid-template-columns: repeat(2, 1fr); }
+      .contact-form > *:nth-child(n+6), .contact-form > *:first-child {
+        grid-column: span 2; } }
   .contact-form input, .contact-form textarea {
     background-color: #9dbc98;
+    color: white;
     border-radius: 3px;
     border: none;
     padding: 15px 25px;
@@ -646,45 +658,62 @@ code {
   .contact-form textarea {
     padding: 20px; }
 
-@media screen and (min-width: 480px) {
-  #fname {
-    grid-area: fname; } }
-
-@media screen and (min-width: 480px) {
-  #lname {
-    grid-area: lname; } }
-
-@media screen and (min-width: 480px) {
-  #email {
-    grid-area: email; } }
-
-@media screen and (min-width: 480px) {
-  #subject {
-    grid-area: subject; } }
-
-@media screen and (min-width: 480px) {
-  #message {
-    grid-area: message; } }
-
-@media screen and (min-width: 480px) {
-  #submit {
-    grid-area: submit; } }
+.submit-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px 0;
+  flex-direction: column-reverse; }
+  @media screen and (min-width: 480px) {
+    .submit-wrapper {
+      flex-direction: row; } }
 
 #submit {
-  padding-top: 20px;
-  padding-bottom: 20px;
-  background-color: #F9EFDB;
+  min-width: 30%;
+  padding: 20px 70px;
   border: 4px solid #9dbc98;
-  color: #9dbc98;
+  background-color: #9dbc98;
+  color: #f3eeea;
   border-radius: 5px;
   font-weight: bold; }
-  @media screen and (min-width: 576px) {
-    #submit {
-      margin-right: 50%; } }
   #submit:hover {
-    background-color: #9dbc98;
-    cursor: pointer;
-    color: #F9EFDB; }
+    background-color: #80a879;
+    border-color: #80a879;
+    cursor: pointer; }
+
+.alert {
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 3px;
+  color: #fbf5e8;
+  line-height: 1.42857143;
+  display: flex;
+  gap: 5px;
+  justify-content: space-between;
+  align-items: center; }
+
+.alert-success {
+  background: #166534; }
+
+.alert-error {
+  background-color: #b91c1c; }
+
+.alert-warning {
+  background-color: #ca8a04; }
+
+.close {
+  float: right;
+  cursor: pointer;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #fff;
+  text-shadow: 0 1px 0 #000;
+  opacity: .3;
+  background-color: transparent;
+  border: none; }
+  .close:hover {
+    opacity: .6; }
 
 [class^="icon-"], [class*=" icon-"] {
   font-family: "icomoon" !important;
@@ -846,6 +875,24 @@ code {
     height: 13px;
     background: url("https://api.iconify.design/simple-icons/jetbrains.svg") no-repeat center center/contain; }
 
+.item-js {
+  padding-right: 5px; }
+  .item-js::before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: url("https://api.iconify.design/raphael/js.svg") no-repeat center center/contain; }
+
+.item-php {
+  padding-right: 5px; }
+  .item-php::before {
+    content: '';
+    display: inline-block;
+    width: 13px;
+    height: 13px;
+    background: url("https://api.iconify.design/skill-icons/php-dark.svg?color=black") no-repeat center center/contain; }
+
 .treehouse-logo {
   display: flex;
   justify-content: center;
@@ -871,6 +918,24 @@ code {
     background: url("../images/icons/netmatters-white.svg") no-repeat center center/contain;
     width: 100px;
     height: 100px; }
+
+.i-tailwind {
+  display: flex; }
+  .i-tailwind::before {
+    content: '';
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    mask: url("https://api.iconify.design/simple-icons/tailwindcss.svg") no-repeat center center/contain;
+    background-color: white; }
+.i-php {
+  display: flex; }
+  .i-php::before {
+    content: '';
+    display: inline-block;
+    width: 19px;
+    height: 19px;
+    background: url("https://api.iconify.design/skill-icons/php-light.svg") no-repeat center center/contain; }
 
 .nav-side {
   display: flex;

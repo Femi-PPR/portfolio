@@ -19,6 +19,10 @@ textarea{
 
 section{
     min-height: 100vh;
+    @include mq("3xl"){
+        min-height: auto;
+        @include py(50px);
+    }
 }
 
 a{

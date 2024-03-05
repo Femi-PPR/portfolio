@@ -36,6 +36,8 @@
                                         <i class="fab-html" title="HTML"></i>
                                         <i class="fab-css" title="CSS"></i>
                                         <i class="fab-sass" title="SASS"></i>
+                                        <i class="fab-javascript" title="JavaScript"></i>
+                                        <i class="i-php" title="PHP"></i>
                                     </div>
                                 </div>
                                 <div class="project-text">
@@ -50,14 +52,16 @@
                                         alt="Random Image Generator">
                                     <div class="project-description">
                                         <p>
-                                            In this project I created a random image generator using the Unsplash API.
-                                            This project was styled with Tailwind CSS and JavaScript for the API calls.
+                                            In this project, I developed a random image generator utilizing the Unsplash
+                                            API. The styling was implemented with Tailwind CSS, while JavaScript was
+                                            used for handling API calls.
                                         </p>
                                     </div>
                                     <div class="tech-stack">
                                         <i class="fab-html" title="HTML"></i>
                                         <i class="fab-css" title="CSS"></i>
-                                        <i class="fab-sass" title="SASS"></i>
+                                        <i class="i-tailwind" title="Tailwind CSS"></i>
+                                        <i class="fab-javascript" title="JavaScript"></i>
                                     </div>
                                 </div>
                                 <div class="project-text">
@@ -122,9 +126,10 @@
                                 collaborations, or simply have a chat. you may contact me directly at
                             </p>
                             <p><strong>
-                                    <a href=""><i class="fa-phone"></i> 000 000 0000</a>
+                                    <a href="tel:07535406561"><i class="fa-phone"></i> +447535406561</a>
                                     <br>
-                                    <a href=""><i class="fa-email"></i> email@gmanmail.com</a>
+                                    <a href="mailto:femioladapo3@gmail.com"><i class="fa-email"></i>
+                                        femioladapo3@gmail.com</a>
 
                                 </strong></p>
                             <p> You may also drop me a message using the contact form!</p>
@@ -133,41 +138,81 @@
                             <form class="contact-form" method="post" action="#contact">
                                 <?php
                                 require_once "inc/validate.php";
-                                // require_once 'inc/conn.php';
+
                                 $errMsgs = [
                                     "fname" => [
-                                        "required" => "The name field is required."
+                                        "required" => "Error: The name field is required."
                                     ],
                                     "lname" => [
-                                        "required" => "The name field is required."
+                                        "required" => "Error: The name field is required."
                                     ],
                                     "email" => [
-                                        "required" => "The email field is required.",
-                                        "format" => "The email format is invalid."
+                                        "required" => "Error: The email field is required.",
+                                        "format" => "Error: The email format is invalid."
                                     ],
                                     "telephone" => [
-                                        "required" => "The telephone field is required.",
-                                        "format" => "The telephone format is invalid."
+                                        "required" => "Error: The telephone field is required.",
+                                        "format" => "Error: The telephone format is invalid."
                                     ],
                                 ];
-                                $successMsg = 'Your message has been sent!';
-                                $checkboxID = "privacy-contact";
+                                $successMsg = 'Success: Your information has been sent!';
                                 $allSet = allPostNamesSet(array_keys($errMsgs));
                                 $alertMsgs = getAlertMsgs($errMsgs, $successMsg);
+                                require_once "inc/mailer.php";
+                                require_once 'inc/conn.php';
+
                                 $failed = count($alertMsgs) > 0 && $alertMsgs[0]['type'] == 'error';
                                 if ($allSet && !$failed) {
                                     $data = [
-                                        'fname' => filter_input(INPUT_POST, 'fname', FILTER_SANITIZE_STRING),
-                                        'lname' => filter_input(INPUT_POST, 'lname', FILTER_SANITIZE_STRING),
+                                        'fname' => htmlspecialchars($_POST['fname']),
+                                        'lname' => htmlspecialchars($_POST['lname']),
                                         'email' => filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL),
-                                        'telephone' => filter_input(INPUT_POST, 'telephone', FILTER_SANITIZE_STRING),
-                                        'msg' => filter_input(INPUT_POST, 'msg', FILTER_SANITIZE_STRING),
-                                        'subject' => $_POST['subject'] === '' ? "No Subject" : filter_input(INPUT_POST, 'subject', FILTER_SANITIZE_STRING),
+                                        'telephone' => htmlspecialchars($_POST['telephone']),
+                                        'subject' => empty($_POST['subject']) ? "No Subject" : htmlspecialchars($_POST['subject']),
                                     ];
-                                    $msg = "Name: " . $data["fname"] . " " . $data["lname"] . "\n";
-                                    $msg .= "Email: " . $data["email"] . "\n";
-                                    $msg .= "Message: " . $data["msg"] . "\n";
-                                    mail('femiportfoliocontacts@gmail.com', $data['subject'], $msg);
+
+                                    if (!empty($_POST['message']))
+                                        $data['message'] = htmlspecialchars($_POST['message']);
+
+                                    $msg = "<p><strong>Name:</strong> " . $data["fname"] . " " . $data["lname"] . "</p>";
+                                    $msg .= "<p><strong>Email:</strong> " . $data["email"] . "</p>";
+                                    $msg .= "<p><strong>Telephone:</strong> " . $data["telephone"] . "</p>";
+                                    if (!empty($_POST['message']))
+                                        $msg .= "<p><strong>Message:</strong> " . $data["message"] . "</p>";
+
+                                    $mail->setFrom('femiportfoliocontacts@gmail.com', 'PortfolioMailer');
+                                    $mail->addAddress('femiportfoliocontacts@gmail.com');
+
+                                    $mail->isHTML(true);
+                                    $mail->Subject = "Portfolio Contact - " . $data['subject'];
+                                    $mail->Body = wordwrap($msg, $width = 120, $break = "<br>");
+                                    try {
+                                        $mail->send();
+                                    } catch (Exception $e) {
+                                        $alertMsgs = [
+                                            [
+                                                'type' => 'error',
+                                                'msg' => "Message could not be sent. Mailer Error: {$mail->ErrorInfo}",
+                                            ]
+                                        ];
+                                    }
+
+                                    $query = sprintf(
+                                        'INSERT INTO Contacts (FirstName, LastName, Email, Telephone, Subject %s) VALUE (:fname, :lname, :email, :telephone, :subject %s)',
+                                        empty($_POST['message']) ? null : ', Message',
+                                        empty($_POST['message']) ? null : ', :message'
+                                    );
+                                    $stmt = $db->prepare($query);
+                                    try {
+                                        $stmt->execute($data);
+                                    } catch (PDOException $e) {
+                                        $alertMsgs = [
+                                            [
+                                                'type' => 'error',
+                                                'msg' => $e->getMessage()
+                                            ]
+                                        ];
+                                    }
                                 }
                                 require "inc/msg-area.php";
                                 ?>
@@ -204,7 +249,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/alerts.js"></script>
     <script src="js/variables.js"></script>
     <script src="js/banner.js"></script>

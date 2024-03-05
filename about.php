@@ -47,6 +47,8 @@
                                 <li><i class="item-python"></i> Python</li>
                                 <li><i class="item-r"></i> R</li>
                                 <li><i class="item-sql"></i> SQL</li>
+                                <li><i class="item-js"></i> JavaScript</li>
+                                <li><i class="item-php"></i> PHP</li>
                                 <li><i class="item-github"></i> Github</li>
                                 <li><i class="item-vs-code"></i> VS Code</li>
                                 <li><i class="item-jet-brains"></i> Jet Brains</li>
@@ -63,7 +65,7 @@
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"
         integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
     <script src="js/variables.js"></script>
     <script src="js/banner.js"></script>
     <script src="js/mobileSidebar.js"></script>

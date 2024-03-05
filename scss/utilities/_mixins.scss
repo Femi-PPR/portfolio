@@ -7,6 +7,31 @@
     }
 }
 
+@mixin mask-icon($url, $colour: null, $size: 16px){
+    display: flex;
+    &::before{
+        content: '';            
+        display: inline-block;
+        width: $size;
+        height: $size;
+        mask: url($url) no-repeat center center / contain;
+        background-color: $colour;
+        @content;
+    }
+}
+
+@mixin bg-icon($url, $size: 16px){
+    display: flex;
+    &::before{
+        content: '';            
+        display: inline-block;
+        width: $size;
+        height: $size;
+        background: url($url) no-repeat center center / contain;
+        @content;
+    }
+}
+
 @mixin mq($brk){
     $value: map-get($break-points, $brk);
     @media screen and (min-width: $value) {

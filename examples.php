@@ -20,7 +20,10 @@
                 <section id="examples" class="coding-examples">
                     <div class="container">
                         <h2 class="example-title">Banner Background Animation</h2>
-                        <div class="nav-tabs">
+                        <p class="example-description">This is the code for performing the opening banner animation for
+                            when you navigate between
+                            page on this portfolio</p>
+                        <div class="nav-tabs paging-background">
                             <div class="nav-tab">
                                 <div class="code-desciption">
                                     <p>This HTML code sets up a basic structure for a banner background with separate
@@ -124,6 +127,144 @@ function addBGAnimation(bgPositions, duration = 1200) {
 $(document).ready(() => {
   addBGAnimation(bannerBGs);
 });
+                            </code></pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container">
+                        <h2 class="example-title">Server Side Validation</h2>
+                        <p class="example-description">This code was used to perform server side validation for the
+                            Netmatters Clone project</p>
+                        <div class="nav-tabs paging-server-side">
+                            <div class="nav-tab">
+                                <div class="code-desciption">
+                                    <p>This PHP code serves to dynamically generate HTML markup for displaying alert
+                                        messages on a webpage. It adapts the displayed alert based on the type
+                                        specified.</p>
+                                </div>
+                                <pre>
+                                    <code class="language-php">
+&lt;?php
+
+function dispAlert(string $type, string $message): string
+{
+    $alertClass = "";
+    switch ($type) {
+        case "success":
+            $alertClass = "alert-success";
+        case "warning":
+            $alertClass = "alert-warning";
+        case "error":
+            $alertClass = "alert-error";
+        default:
+            throw new Exception("Unkown alert type given.");
+    }
+
+    return '&lt;div class="alert ' . $alertClass . "\"&gt;\n"
+        . '    ' . $message . "\n"
+        . '    &lt;button type="button" class="close" onclick="dismissAlert(event)"&gt;×&lt;/button&gt;' . "\n"
+        . '&lt;/div&gt;';
+}
+
+if (!isset($alertMsgs))
+    $alertMsgs = [["type" => "success", "msg" => "Success"]];
+?&gt;
+
+&lt;div class="message-area"&gt;
+    &lt;?php
+    foreach ($alertMsgs as $alertMsg) {
+        echo dispAlert($alertMsg["type"], $alertMsg["msg"]);
+    }
+    ?&gt;
+&lt;/div&gt;
+                                    </code>
+                                </pre>
+                            </div>
+                            <div class="nav-tab">
+                                <div class="code-desciption">
+                                    <p>This PHP code performs form validation and generate alert messages
+                                        based on the validation results.</p>
+                                </div>
+                                <pre><code class="language-php">
+&lt;?php
+const EMAIL_REGEX = "/^(([^<>()\[\]\.,;:\s@\"]+(.[^<>()[\]\.,;:\s@\"]+)*)|(\".+\"))@(([[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z-0-9]+\.)+[a-zA-Z]{2,}))$/";
+const TELE_REGEX = "/^((?:\+|00)[17](?: |-)?|(?:\+|00)[1-9]\d{0,2}(?: |-)?|(?:\+|00)1-\d{3}(?: |-)?)?(0\d|([0-9]{3})|[1-9]{0,3})(?:((?: |-)[0-9]{2}){4}|((?:[0-9]{2}){4})|((?: |-)[0-9]{3}(?: |-)[0-9]{4})|([0-9]{7}))$/";
+
+function validFormat(string $name, string $value): bool
+{
+    switch ($name) {
+        case 'email':
+            return preg_match(EMAIL_REGEX, $value);
+        case 'telephone':
+            return preg_match(TELE_REGEX, $value);
+        default:
+            return true;
+    }
+}
+
+function allPostNamesSet(array $postNames): bool
+{
+    foreach ($postNames as $postName) {
+        if (!isset($_POST[$postName])) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function getAlertMsgs(array $errMsgs, string $successMsg): array
+{
+    $alertMsgs = [];
+    if (!allPostNamesSet(array_keys($errMsgs)))
+        return $alertMsgs;
+    $allValid = true;
+    foreach ($errMsgs as $name => $errorMsg) {
+        if (isset($_POST[$name])) {
+            if (isset($errorMsg["required"]) && $_POST[$name] === "") {
+                $alertMsgs[] = ["type" => "error", "msg" => $errorMsg["required"]];
+                $allValid = false;
+            } elseif (isset($errorMsg["format"]) && !validFormat($name, $_POST[$name])) {
+                $alertMsgs[] = ["type" => "error", "msg" => $errorMsg["format"]];
+                $allValid = false;
+            }
+        }
+    }
+    if ($allValid) {
+        $alertMsgs[] = ["type" => "success", "msg" => $successMsg];
+    }
+
+    return $alertMsgs;
+}
+                                </code></pre>
+                            </div>
+                            <div class="nav-tab">
+                                <div class="code-desciption">
+                                    <p>This is the PHP code that is used to handle form
+                                        submission and validation for the contact us form for the Netmatters clone site.
+                                    </p>
+                                </div>
+                                <pre><code class="language-php">
+&lt;?php
+require_once "inc/validate.php";
+$errMsgs = [
+    "name" => [
+        "required" => "The name field is required."
+    ],
+    "email" => [
+        "required" => "The email field is required.",
+        "format" => "The email format is invalid."
+    ],
+    "telephone" => [
+        "required" => "The telephone field is required.",
+        "format" => "The telephone format is invalid."
+    ],
+    "msg" => [
+        "required" => "The message field is required.",
+    ],
+];
+$successMsg = 'Your message has been sent!';
+$alertMsgs = getAlertMsgs($errMsgs, $successMsg);
+require "inc/msg-area.php";
                             </code></pre>
                             </div>
                         </div>

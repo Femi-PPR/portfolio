@@ -187,8 +187,20 @@
 .coding-examples{
     position: relative;
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
     padding-bottom: 68px;
+    width: 100%;
     overflow-x: hidden;
+
+    .container{
+        width: 100%;
+    }
+
+    .nav-tab{
+        width: 100%;
+    }
 
     &+.btm-scroll{
         margin-top: -48px;
@@ -197,8 +209,8 @@
     }
 }
 
-.example-title{
-    margin-bottom: 20px;
+.example-description{
+    margin-bottom: 30px;
 }
 
 .spectrum-background {
@@ -550,6 +562,10 @@
             &-javascript::before{
                 color: white;
             }
+        }
+
+        .i-php2::before{
+            background-color: white;
         }
     }
 }

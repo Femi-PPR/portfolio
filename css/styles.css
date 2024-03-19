@@ -303,15 +303,23 @@ code {
 .coding-examples {
   position: relative;
   padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
   padding-bottom: 68px;
+  width: 100%;
   overflow-x: hidden; }
+  .coding-examples .container {
+    width: 100%; }
+  .coding-examples .nav-tab {
+    width: 100%; }
   .coding-examples + .btm-scroll {
     margin-top: -48px;
     position: relative;
     z-index: 1; }
 
-.example-title {
-  margin-bottom: 20px; }
+.example-description {
+  margin-bottom: 30px; }
 
 .spectrum-background {
   background: linear-gradient(-45deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(-225deg, #ebd9b4 0 25%, transparent 0 50%), linear-gradient(225deg, #9dbc98 0 25%, transparent 0 50%), linear-gradient(45deg, #9dbc98 0 25%, transparent 0 50%);
@@ -618,6 +626,8 @@ code {
       color: white; }
     .tab-items .slick-active .fab-javascript::before {
       color: white; }
+    .tab-items .slick-active .i-php2::before {
+      background-color: white; }
 
 .code-desciption {
   padding: 1rem;
@@ -928,6 +938,24 @@ code {
     height: 21px;
     mask: url("https://api.iconify.design/simple-icons/tailwindcss.svg") no-repeat center center/contain;
     background-color: white; }
+.i-laravel {
+  display: flex; }
+  .i-laravel::before {
+    content: '';
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    mask: url("https://api.iconify.design/cib/laravel.svg") no-repeat center center/contain;
+    background-color: white; }
+.i-bootstrap {
+  display: flex; }
+  .i-bootstrap::before {
+    content: '';
+    display: inline-block;
+    width: 21px;
+    height: 21px;
+    mask: url("https://api.iconify.design/simple-icons/bootstrap.svg") no-repeat center center/contain;
+    background-color: white; }
 .i-php {
   display: flex; }
   .i-php::before {
@@ -936,6 +964,15 @@ code {
     width: 19px;
     height: 19px;
     background: url("https://api.iconify.design/skill-icons/php-light.svg") no-repeat center center/contain; }
+.i-php2 {
+  display: flex; }
+  .i-php2::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    mask: url("https://api.iconify.design/devicon-plain/php.svg") no-repeat center center/contain;
+    background-color: black; }
 
 .nav-side {
   display: flex;

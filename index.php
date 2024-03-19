@@ -75,10 +75,11 @@
                                     <img src="images/backgrounds/manager.png" width="450" height="300" alt="Manager">
                                     <div class="project-description">
                                         <p>
-                                            In this project, I developed an site that showed the information of
-                                            companies and employees using Laravel. I utilised Eloquent models to shaped
-                                            the data. I also using Lavarels blade templates and Boostrap to style the
-                                            views for the user.
+                                            In this project, a website was developed to display information about
+                                            companies and their employees, utilizing Laravel. Eloquent models were
+                                            employed to structure the data. Laravel's Blade
+                                            templates and Bootstrap were utilized to design and style the user
+                                            interface.
                                         </p>
                                     </div>
                                     <div class="tech-stack">

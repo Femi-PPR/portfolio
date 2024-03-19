@@ -70,15 +70,29 @@
                                         target="_blank">View Project <i class="icon-rarrow"></i></a>
                                 </div>
                             </article>
-                            <article>
+                            <article class="portfolio-article">
                                 <div class="project-image">
-                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300"
-                                        alt="Netmatters Clone">
-                                    <span class="wip-project"></span>
+                                    <img src="images/backgrounds/manager.png" width="450" height="300" alt="Manager">
+                                    <div class="project-description">
+                                        <p>
+                                            In this project, I developed an site that showed the information of
+                                            companies and employees using Laravel. I utilised Eloquent models to shaped
+                                            the data. I also using Lavarels blade templates and Boostrap to style the
+                                            views for the user.
+                                        </p>
+                                    </div>
+                                    <div class="tech-stack">
+                                        <i class="fab-html" title="HTML"></i>
+                                        <i class="fab-css" title="CSS"></i>
+                                        <i class="i-bootstrap" title="Bootstrap"></i>
+                                        <i class="i-php" title="PHP"></i>
+                                        <i class="i-laravel" title="Laravel"></i>
+                                    </div>
                                 </div>
                                 <div class="project-text">
-                                    <h3>Project 3</h3>
-                                    <a href="">View Project <i class="icon-rarrow"></i></a>
+                                    <h3>Manager</h3>
+                                    <a href="https://github.com/Femi-PPR/manager" target="_blank">View Code <i
+                                            class="icon-rarrow"></i></a>
                                 </div>
                             </article>
                             <article>
@@ -168,16 +182,16 @@
                                         'lname' => htmlspecialchars($_POST['lname']),
                                         'email' => filter_input(INPUT_POST, 'email', FILTER_SANITIZE_EMAIL),
                                         'telephone' => htmlspecialchars($_POST['telephone']),
-                                        'subject' => empty($_POST['subject']) ? "No Subject" : htmlspecialchars($_POST['subject']),
+                                        'subject' => empty ($_POST['subject']) ? "No Subject" : htmlspecialchars($_POST['subject']),
                                     ];
 
-                                    if (!empty($_POST['message']))
+                                    if (!empty ($_POST['message']))
                                         $data['message'] = htmlspecialchars($_POST['message']);
 
                                     $msg = "<p><strong>Name:</strong> " . $data["fname"] . " " . $data["lname"] . "</p>";
                                     $msg .= "<p><strong>Email:</strong> " . $data["email"] . "</p>";
                                     $msg .= "<p><strong>Telephone:</strong> " . $data["telephone"] . "</p>";
-                                    if (!empty($_POST['message']))
+                                    if (!empty ($_POST['message']))
                                         $msg .= "<p><strong>Message:</strong> " . $data["message"] . "</p>";
 
                                     $mail->setFrom('femiportfoliocontacts@gmail.com', 'PortfolioMailer');
@@ -199,8 +213,8 @@
 
                                     $query = sprintf(
                                         'INSERT INTO Contacts (FirstName, LastName, Email, Telephone, Subject %s) VALUE (:fname, :lname, :email, :telephone, :subject %s)',
-                                        empty($_POST['message']) ? null : ', Message',
-                                        empty($_POST['message']) ? null : ', :message'
+                                        empty ($_POST['message']) ? null : ', Message',
+                                        empty ($_POST['message']) ? null : ', :message'
                                     );
                                     $stmt = $db->prepare($query);
                                     try {
@@ -217,21 +231,21 @@
                                 require "inc/msg-area.php";
                                 ?>
                                 <input name="fname" id="fname" type="text" placeholder="First Name *"
-                                    value="<?= (isset($_POST['fname']) && $failed) ? htmlspecialchars($_POST['fname']) : '' ?>"
+                                    value="<?= (isset ($_POST['fname']) && $failed) ? htmlspecialchars($_POST['fname']) : '' ?>"
                                     required>
                                 <input name="lname" id="lname" type="text" placeholder="Last Name *"
-                                    value="<?= (isset($_POST['lname']) && $failed) ? htmlspecialchars($_POST['lname']) : '' ?>"
+                                    value="<?= (isset ($_POST['lname']) && $failed) ? htmlspecialchars($_POST['lname']) : '' ?>"
                                     required>
                                 <input name="email" id="email" type="text" placeholder="Email *"
-                                    value="<?= (isset($_POST['email']) && $failed) ? htmlspecialchars($_POST['email']) : '' ?>"
+                                    value="<?= (isset ($_POST['email']) && $failed) ? htmlspecialchars($_POST['email']) : '' ?>"
                                     required>
                                 <input name="telephone" id="telephone" type="text" placeholder="Telephone *"
-                                    value="<?= (isset($_POST['telephone']) && $failed) ? htmlspecialchars($_POST['telephone']) : '' ?>"
+                                    value="<?= (isset ($_POST['telephone']) && $failed) ? htmlspecialchars($_POST['telephone']) : '' ?>"
                                     required>
                                 <input name="subject" id="subject" type="text" placeholder="Subject"
-                                    value="<?= (isset($_POST['subject']) && $failed) ? htmlspecialchars($_POST['subject']) : '' ?>">
+                                    value="<?= (isset ($_POST['subject']) && $failed) ? htmlspecialchars($_POST['subject']) : '' ?>">
                                 <textarea name="message" id="message" cols="30" rows="10"
-                                    placeholder="Message"><?= (isset($_POST['message']) && $failed) ? htmlspecialchars($_POST['message']) : '' ?></textarea>
+                                    placeholder="Message"><?= (isset ($_POST['message']) && $failed) ? htmlspecialchars($_POST['message']) : '' ?></textarea>
                                 <div class="submit-wrapper">
                                     <button id="submit">Submit</button>
                                     <span>* Required Fields</span>

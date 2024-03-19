@@ -5,19 +5,39 @@ const MQ_SMALL = window.matchMedia("(min-width: 576px)");
 const $navTabs = $(".nav-tabs");
 
 const paging = (slick, index) => {
+    console.log(slick.$slider.hasClass("paging-background"));
     let pagingText;
-    switch (index) {
-        case 0:
-            pagingText = "HTML";
-            break;
-        case 1:
-            pagingText = "Sass";
-            break;
-        case 2:
-            pagingText = "JavaScript";
-            break;
+    let pagingElem;
+    if (slick.$slider.hasClass("paging-background")) {
+        console.log("here");
+        switch (index) {
+            case 0:
+                pagingText = "HTML";
+                break;
+            case 1:
+                pagingText = "Sass";
+                break;
+            case 2:
+                pagingText = "JavaScript";
+                break;
+        }
+        pagingElem = `<i class="fab-${pagingText.toLowerCase()}"></i> ${pagingText}`;
+    } else if (slick.$slider.hasClass("paging-server-side")) {
+        switch (index) {
+            case 0:
+                pagingText = "msg-area.php";
+                break;
+            case 1:
+                pagingText = "validate.php";
+                break;
+            case 2:
+                pagingText = "contact-us.php";
+                break;
+        }
+        pagingElem = `<i class="i-php2"></i> ${pagingText}`;
     }
-    return `<i class="fab-${pagingText.toLowerCase()}"></i> ${pagingText}`;
+    console.log(pagingElem);
+    return pagingElem;
 };
 
 const slickOptions = {

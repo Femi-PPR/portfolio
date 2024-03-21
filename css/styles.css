@@ -667,7 +667,8 @@ code {
     .contact-form input::placeholder, .contact-form textarea::placeholder {
       color: rgba(243, 238, 234, 0.7); }
   .contact-form textarea {
-    padding: 20px; }
+    padding: 20px;
+    resize: vertical; }
 
 .submit-wrapper {
   display: flex;

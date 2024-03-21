@@ -7,6 +7,31 @@
     }
 }
 
+@mixin mask-icon($url, $colour: null, $size: 16px){
+    display: flex;
+    &::before{
+        content: '';            
+        display: inline-block;
+        width: $size;
+        height: $size;
+        mask: url($url) no-repeat center center / contain;
+        background-color: $colour;
+        @content;
+    }
+}
+
+@mixin bg-icon($url, $size: 16px){
+    display: flex;
+    &::before{
+        content: '';            
+        display: inline-block;
+        width: $size;
+        height: $size;
+        background: url($url) no-repeat center center / contain;
+        @content;
+    }
+}
+
 @mixin mq($brk){
     $value: map-get($break-points, $brk);
     @media screen and (min-width: $value) {
@@ -136,4 +161,17 @@
             height: auto;
         }
     }
+}
+
+@mixin bg-styles($deg, $colour, $x, $y){
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(
+            $deg,
+            $colour 25%,
+            transparent 25%,
+        );
+    background-size: 200% 200%;
+    background-position: $x $y;
 }

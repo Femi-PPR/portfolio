@@ -50,6 +50,8 @@ $colour-treehouse: #5fcf80;
 $colour-netmatters: #333645;
 
 $grad-percent: 25%;
+$diff: -2px;
+$deg: 45deg;
 
 $icon-rarrow        : "\E906";
 $icon-linkedin      : "\F0E1";
@@ -61,6 +63,12 @@ $icon-email         : "\f0e0";
 $icon-html          : "\f13b";
 $icon-css           : "\f38b";
 $icon-sass          : "\f41e";
+$icon-js            : "\f3b8";
+$icon-url-tailwind  : "https://api.iconify.design/simple-icons/tailwindcss.svg";
+$icon-url-php       : "https://api.iconify.design/skill-icons/php-light.svg";
+$icon-url-laravel   : "https://api.iconify.design/cib/laravel.svg";
+$icon-url-bootstrap : "https://api.iconify.design/simple-icons/bootstrap.svg";
+$icon-url-php2      : "https://api.iconify.design/devicon-plain/php.svg";
 
 $break-points : (
     "xs"    : 480px,
@@ -69,6 +77,7 @@ $break-points : (
     "lg"    : 992px,
     "xl"    : 1260px,
     "2xl"   : 1400px,
+    "3xl"   : 1536px,
 );
 
 $tech-icons: (
@@ -82,6 +91,59 @@ $tech-icons: (
     "github": "#{$img-path-local}/icons/github.svg",
     "vs-code": "https://api.iconify.design/akar-icons/vscode-fill.svg",
     "jet-brains": "https://api.iconify.design/simple-icons/jetbrains.svg",
+    "js": "https://api.iconify.design/raphael/js.svg",
+    "php": "https://api.iconify.design/skill-icons/php-dark.svg?color=black",
 );
 
-$contact-grid-areas : ("fname","lname","email","subject","message","submit");
+$bg-properties: (
+    ".banner-bg-br": (
+        "deg": -45deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 75%,
+        "bg-y": 75%,
+    ),
+    ".banner-bg-bl": (
+        "deg": 45deg,
+        "colour": $colour-second,
+        "bg-x": 25%,
+        "bg-y": 75%,
+    ),
+    ".banner-bg-tr": (
+        "deg": 225deg,
+        "colour": $colour-second,
+        "bg-x": 75%,
+        "bg-y": 25%,
+    ),
+    ".banner-bg-tl": (
+        "deg": -225deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 25%,
+        "bg-y": 25%,
+    ),
+    ".js .banner-bg-br": (
+        "deg": -45deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 50%,
+        "bg-y": 50%,
+    ),
+    ".js .banner-bg-bl": (
+        "deg": 45deg,
+        "colour": $colour-second,
+        "bg-x": 0%,
+        "bg-y": 100%,
+    ),
+    ".js .banner-bg-tr": (
+        "deg": 225deg,
+        "colour": $colour-second,
+        "bg-x": 100%,
+        "bg-y": 0%,
+    ),
+    ".js .banner-bg-tl": (
+        "deg": -225deg,
+        "colour": $colour-prim-drkr,
+        "bg-x": 50%,
+        "bg-y": 50%,
+    ),
+);
+
+$contact-grid-areas : ("fname","lname","email","telephone","subject","msgarea","message","submit");

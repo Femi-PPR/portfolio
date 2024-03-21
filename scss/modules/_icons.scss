@@ -78,6 +78,10 @@
         @include icon($icon-css, white, 20px);
     }
 
+    &-javascript{
+        @include icon($icon-js, white, 20px);
+    }
+
     &-sass{
         @include icon($icon-sass, white, 20px);
     }
@@ -124,5 +128,27 @@
         background: url('#{$img-path-local}/icons/netmatters-white.svg') no-repeat center center / contain;
         width: 100px;
         height: 100px;
+    }
+}
+
+.i{
+    &-tailwind{
+        @include mask-icon($icon-url-tailwind, white, 21px);
+    }
+
+    &-laravel{
+        @include mask-icon($icon-url-laravel, white, 21px);
+    }
+
+    &-bootstrap{
+        @include mask-icon($icon-url-bootstrap, white, 21px);
+    }
+    
+    &-php{
+        @include bg-icon($icon-url-php, 19px);
+    }
+
+    &-php2{
+        @include mask-icon($icon-url-php2, black);
     }
 }

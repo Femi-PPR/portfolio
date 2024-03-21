@@ -13,8 +13,16 @@ body{
     background-color: $colour-prim;
 }
 
+textarea{
+    font-family: $stack-titillium;
+}
+
 section{
     min-height: 100vh;
+    @include mq("3xl"){
+        min-height: auto;
+        @include py(50px);
+    }
 }
 
 a{
@@ -28,4 +36,10 @@ li{
 
 p{
     min-width: 0;
+}
+
+code {
+    display: block;
+    overflow-x: auto;
+    padding: 1em;
 }

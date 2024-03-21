@@ -4,12 +4,68 @@
 
 
 .sidebar{
-    @include fixed-pos($t: 0, $l: 0, $r: 0);
-    @include show-at-viewport("md");
+    @include fixed-pos($t: 0, $l: -200px, $r: 0);
+    // @include show-at-viewport("md");
+    z-index: 10;
     width: 200px;
-    height: 100vh;
+    height: 100dvh;
     background-color: $colour-prim;
     border-right: 5px solid $colour-second;
+
+    @include mq("md"){
+        @include fixed-pos($t: 0, $l: 0, $r: 0);
+
+    }
+
+    @media screen and (max-height: 670px){
+        overflow-y: scroll;
+        overflow-x: hidden;   
+    }
+
+    // &-content{
+    //     position: relative;
+    //     z-index: 11;
+    // }
+
+    &-pullout{
+        @include fixed-pos($t:0, $b:0, $l: 0);
+        @include hide-at-viewport("md");
+        cursor: pointer;
+        z-index: 9;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 25px;
+        background-color: $colour-second;
+        border-right: 5px solid $colour-second;
+    }
+
+    &-arrow{
+        position: relative;
+        display: block;
+        &::before{
+            content: "";
+            display: block;
+            position: relative;
+            top: -1 * $diff;
+            height: 3px;
+            width: 10px;
+            transform-origin: center right;
+            transform: rotate($deg);
+            background-color: $colour-prim;
+        }
+        &::after{
+            content: "";
+            display: block;
+            position: relative;
+            top: $diff;
+            height: 3px;
+            width: 10px;
+            transform-origin: center right;
+            transform: rotate(-1 * $deg);
+            background-color: $colour-prim;
+        }
+    }
 }
 
 
@@ -38,24 +94,124 @@
 .main-content{
     position: relative;
     float: right;
-    width: 100%;
+    width: calc(100% - 25px);
     @include mq("md"){
         width: calc(100% - 200px);
-        margin-left: 200px;
+        // margin-left: 200px;
     }
 }
 
 
 .banner{
     width: 100%;
-    height: 100vh;
+    height: 100dvh;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    z-index: -3;
+    &-bg{
+        isolation: isolate;
+        z-index: -1;
+    }
 }
 
+.js .banner-bg{
+    z-index: 1;
+}
+
+
+.closing-bg{
+    @include fixed-pos($t:0, $r:0, $l:25px, $b:0);
+    z-index: 3;
+    display: none;
+
+    @include mq("md"){
+        @include fixed-pos($t:0, $r:0, $l:200px, $b:0);
+    }
+
+    &-tl{
+        display: block;
+        width: 100%;
+        height: 100%;
+        background:
+            linear-gradient(
+                -225deg,
+                $colour-second 0 (1 * $grad-percent),
+                transparent 0 (2 * $grad-percent),
+            );
+        background-size: 200% 200%;
+        background-position: 50% 50%;
+    }
+
+    &-br {
+        @include fixed-pos($t:0, $r:0, $l:0, $b:0);
+        display: block;
+        width: 100%;
+        height: 100%;
+        background:
+        linear-gradient(
+                -45deg,
+                $colour-second 0 (1 * $grad-percent),
+                transparent 0 (2 * $grad-percent),
+            );
+        background-size: 200% 200%;
+        background-position: 50% 50%;
+    }
+}
+
+@each $bg, $prop in $bg-properties{
+    #{$bg}{
+        @include abs-pos($t:0, $l:0);
+        mix-blend-mode: multiply;
+        @include bg-styles(
+            map-get($prop, "deg"),
+            map-get($prop, "colour"),
+            map-get($prop, "bg-x"),
+            map-get($prop, "bg-y"),
+        );
+    }
+
+}
+
+.main-cover{
+    @include abs-pos($t:0, $l:0);
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    mix-blend-mode: multiply;
+    z-index: 1;
+    opacity: 0;
+}
+
+.coding-examples{
+    position: relative;
+    padding-top: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding-bottom: 68px;
+    width: 100%;
+    overflow-x: hidden;
+
+    .container{
+        width: 100%;
+    }
+
+    .nav-tab{
+        width: 100%;
+    }
+
+    &+.btm-scroll{
+        margin-top: -48px;
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.example-description{
+    margin-bottom: 30px;
+}
 
 .spectrum-background {
     background:
@@ -139,14 +295,10 @@
 
 
 .wrapper-portfolio{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 20px;
 
-    article{
-        flex: 1 300px;
-    }
 }
 
 
@@ -181,6 +333,12 @@
     }
 
 }
+
+.project-links{
+    display: flex;
+    gap:30px;
+}
+
 
 
 .tech-stack{
@@ -279,6 +437,10 @@
         display: flex;
         flex-direction: column;
         justify-content: space-between;
+        @include mq("3xl"){
+            min-height: auto;
+            @include py(50px);
+        }
     }
 
     &-cards{
@@ -313,102 +475,105 @@
     }
 }
 
-// .treehouse{
-//     border: 3px solid $colour-treehouse;
-//     display: flex;
-//     flex-direction: column;
-//     gap: 10px;
-//     flex: 1;
-
-    
-    
-//     .logo{
-//         width: 100%;
-//         height: 150px;
-//         background-color: $colour-treehouse;
-//     }
-    
-//     .text{
-//         padding: 20px;
-//         flex: 1;
-//         display: flex;
-//         flex-direction: column;
-//         *{
-//             min-width: 0;
-//             min-height: 0;
-//         }
-//         h2{
-//             margin-bottom: 20px;
-            
-//         }
-//         p{
-//             margin-bottom: 20px;
-//         }
-
-//         a{
-//             margin-top: auto;
-//         }
-//     }
-    
-//     @include mq-range("sm", "xl"){
-//         flex-direction: row-reverse;
-
-//         .logo{
-//             min-width: 150px;
-//             width: auto;
-//             height: auto;
-//         }
-//     }
-// }
-
-
-// .netmatters{
-//     border: 3px solid $colour-netmatters;
-//     display: flex;
-//     flex-direction: column;
-//     gap: 10px;
-//     flex: 1;
-
-//     .logo{
-//         width: 100%;
-//         height: 150px;
-//         background-color: $colour-netmatters;
-//     }
-
-//     .text{
-//         padding: 20px;
-//         flex: 1;
-//         display: flex;
-//         flex-direction: column;
-//         h2{
-//             margin-bottom: 20px;
-//         }
-//         ul{
-//             margin-bottom: 20px;
-//         }
-
-//         li{
-//             list-style-type: disc;
-//             list-style-position: inside;
-//         }
-
-//         a{
-//             margin-top: auto;
-//         }
-//     }
-
-//     @include mq-range("sm", "xl"){
-//         flex-direction: row;
-
-//         .logo{
-//             min-width: 150px;
-//             width: auto;
-//             height: auto;
-//         }
-//     }
-
-// }
-
 .btm-scroll{
     margin-top: 20px;
+    margin-bottom: 5px;
+    // @include my(20px);
+}
+
+.slick-list{
+    border: 5px solid $colour-second;
+}
+
+// .nav-tabs{
+//     margin-top: 50px;
+// }
+
+.js .nav-tabs{
+    @include mq("sm"){
+        background-color: #f3f3f3;
+    }
+}
+
+.nav-tab{
+    border: 5px solid $colour-second;
+    margin-bottom: 30px;
+    background-color: #f3f3f3;
+}
+
+.js .nav-tab{
+    @include mq("sm"){
+        border: none;
+        margin: 0;
+    }
+}
+
+.tab-items{
+    display: flex;
+    // @include abs-pos($b: 100%);
+    width: 100%;
+    height: 30px;
+    justify-content: space-around;
+
+    li{
+        background-color: $colour-prim-drkr;
+        cursor: pointer;
+        flex: 1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+
+        &:not(.slick-active):hover{
+            background-color: darken($colour-prim-drkr, 10%);
+        }
+    }
+
+    .fab{
+        &-html::before{
+            color: black;
+            font-size: 16px;
+        }
+
+        &-sass::before{
+            color: black;
+            font-size: 16px;
+        }
+
+        &-javascript::before{
+            color: black;
+            font-size: 16px;
+        }
+    }
+
+    .slick-active{
+        background-color: $colour-second;
+        cursor: default;
+        font-weight: 700;
+        color: white;
+        
+        .fab{
+            &-html::before{
+                color: white;
+            }
+
+            &-sass::before{
+                color: white;
+            }
+
+            &-javascript::before{
+                color: white;
+            }
+        }
+
+        .i-php2::before{
+            background-color: white;
+        }
+    }
+}
+
+.code-desciption{
+    padding: 1rem;
+    background-color: $colour-second;
+    color: white;
 }

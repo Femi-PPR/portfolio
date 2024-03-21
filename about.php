@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'inc/head.php' ?>
+<?php
+$title = "About Me | Femi's Portfolio";
+$metaDesc = "Greetings! I'm Olorunfemi, also known as Femi. I'm a 2023 graduate from the University of Edinburgh with a BSc Honours in Computer Science and Mathematics. My passion lies in technology, data, and hands-on learning. Let's collaborate on exciting projects! Contact me today.";
+include 'inc/head.php';
+?>
 
 <body>
     <?php include 'inc/closing-bg.php' ?>

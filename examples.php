@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'inc/head.php' ?>
+<?php
+$title = "Coding Examples | Femi's Portfolio";
+$metaDesc = "Dive into my coding examples: Here you'll find practical code snippets used in my software projects. As a software developer, I showcase experiences in JavaScript, PHP, and more.";
+include 'inc/head.php'
+    ?>
 
 <body>
     <?php include 'inc/closing-bg.php' ?>

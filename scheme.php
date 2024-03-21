@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-<?php include 'inc/head.php' ?>
+<?php
+$title = "Scion Scheme | Femi's Portfolio";
+$metaDesc = "Learn about the Netmatters Scion Coalition Scheme, a free intensive training program for aspiring web developers. Bridge the skill gap, gain experience, and kickstart your career in development.";
+include 'inc/head.php';
+?>
 
 <body>
     <?php include 'inc/closing-bg.php' ?>

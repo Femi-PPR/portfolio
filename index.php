@@ -1,7 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'inc/head.php' ?>
+<?php
+$metaDesc = "Hi there! I'm a passionate software developer with a knack for turning ideas into elegant code. Explore my projects, skills, and journey in tech. Let's connect and build something amazing together!";
+include 'inc/head.php';
+?>
 
 <body>
     <?php include 'inc/closing-bg.php' ?>
@@ -42,8 +45,12 @@
                                 </div>
                                 <div class="project-text">
                                     <h3>Netmatters Clone</h3>
-                                    <a href="https://netmatters.olorunfemi-oladapo.netmatters-scs.co.uk/"
-                                        target="_blank">View Project <i class="icon-rarrow"></i></a>
+                                    <div class="project-links">
+                                        <a href="https://netmatters.olorunfemi-oladapo.netmatters-scs.co.uk/"
+                                            target="_blank">View Project <i class="icon-rarrow"></i></a>
+                                        <a href="https://github.com/Femi-PPR/netmatters-clone" target="_blank">View Code
+                                            <i class="icon-rarrow"></i></a>
+                                    </div>
                                 </div>
                             </article>
                             <article class="portfolio-article">
@@ -66,8 +73,12 @@
                                 </div>
                                 <div class="project-text">
                                     <h3>Random Image Generator</h3>
-                                    <a href="https://js-array.olorunfemi-oladapo.netmatters-scs.co.uk/"
-                                        target="_blank">View Project <i class="icon-rarrow"></i></a>
+                                    <div class="project-links">
+                                        <a href="https://js-array.olorunfemi-oladapo.netmatters-scs.co.uk/"
+                                            target="_blank">View Project <i class="icon-rarrow"></i></a>
+                                        <a href="https://github.com/Femi-PPR/js-array" target="_blank">View Code <i
+                                                class="icon-rarrow"></i></a>
+                                    </div>
                                 </div>
                             </article>
                             <article class="portfolio-article">
@@ -94,39 +105,6 @@
                                     <h3>Manager</h3>
                                     <a href="https://github.com/Femi-PPR/manager" target="_blank">View Code <i
                                             class="icon-rarrow"></i></a>
-                                </div>
-                            </article>
-                            <article>
-                                <div class="project-image">
-                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300"
-                                        alt="Netmatters Clone">
-                                    <span class="wip-project"></span>
-                                </div>
-                                <div class="project-text">
-                                    <h3>Project 4</h3>
-                                    <a href="">View Project <i class="icon-rarrow"></i></a>
-                                </div>
-                            </article>
-                            <article>
-                                <div class="project-image">
-                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300"
-                                        alt="Netmatters Clone">
-                                    <span class="wip-project"></span>
-                                </div>
-                                <div class="project-text">
-                                    <h3>Project 5</h3>
-                                    <a href="">View Project <i class="icon-rarrow"></i></a>
-                                </div>
-                            </article>
-                            <article>
-                                <div class="project-image">
-                                    <img src="images/backgrounds/coming-soon.jpg" width="450" height="300"
-                                        alt="Netmatters Clone">
-                                    <span class="wip-project"></span>
-                                </div>
-                                <div class="project-text">
-                                    <h3>Project 6</h3>
-                                    <a href="">View Project <i class="icon-rarrow"></i></a>
                                 </div>
                             </article>
                         </div>

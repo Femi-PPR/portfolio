@@ -295,14 +295,10 @@
 
 
 .wrapper-portfolio{
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
     gap: 20px;
 
-    article{
-        flex: 1 300px;
-    }
 }
 
 
@@ -337,6 +333,12 @@
     }
 
 }
+
+.project-links{
+    display: flex;
+    gap:30px;
+}
+
 
 
 .tech-stack{

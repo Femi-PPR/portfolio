@@ -372,12 +372,9 @@ code {
     width: 100%; }
 
 .wrapper-portfolio {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
   gap: 20px; }
-  .wrapper-portfolio article {
-    flex: 1 300px; }
 
 .project-image {
   position: relative;
@@ -408,6 +405,10 @@ code {
     .project-description {
       padding-right: 40px;
       padding-left: 40px; } }
+
+.project-links {
+  display: flex;
+  gap: 30px; }
 
 .tech-stack {
   position: absolute;
